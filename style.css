@@ -5,10 +5,13 @@ html, body {
        -o-background-size: cover;
           background-size: cover;
 }
+.ul {
+  margin-top: 20px;
+}
 
 .container {
     width: 520px;
-    margin-top: 20px;
+    margin-top: 50%;
 }
 .button-group {
     margin-bottom: 20px;
