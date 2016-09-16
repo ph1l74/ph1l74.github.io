@@ -3,79 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-		<style>
-		.h1{
-			margin-top: 5%;
-		}
-
-		.upload {
-			margin-top: 2%;
-			align-self: center;
-		}
-		.buttons {
-			margin-top: 1%;
-		}
-		.poster{
-			position: relative;
-		}
-		.caption{
-			opacity: 0.5;
-    		margin: -54px 20px 12px;
-			position: absolute;
-		}
-		</style>
+		<link href="style.css" rel="stylesheet">
 	</head>
 	<body>
-		<center>
-			<div class= "{{ notestyle }}">
-				{% if fileupstatus == True %}
-					<h2>Список успешно загружен</h2>
-					{% if filmNumberCheck == 1 %}
-						<h2>В Вашем списке {{ filmNumber }} фильм</h2>
-					{% elif 0 < filmNumberCheck < 5 %}
-						<h2>В Вашем списке {{ filmNumber }} фильма</h2>
-					{% else %}
-						<h2>В Вашем списке {{ filmNumber }} фильмов</h2>
-					{% endif %}
-				{% else %}
-					<h2>Список не загружен</h2>
-				{% endif %}
-				<div class="upload">
-					<form action="/" method="POST" enctype="multipart/form-data">
-						<input type="file" name="file">
-						</br>
-						<button type="submit" name="btn" class="btn btn-primary" value="upload">Загрузить</button>
-					</form>
-				</div>
-			</div>
-			<div class="buttons">
-				<form action="/" method="POST">
-					<button type="submit" name="btn" class="btn btn-primary" value="random">Выбрать случайный фильм</button>
-				</form>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<a href="{{ randomFilmURL }}" traget="_blank"><h1>{{ randomFilmTitle }} [{{ randomFilmYear }}]</h1></a>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-3"></div>
-				<div class="col-lg-3">
-					<h2>{{ randomFilmDirector }}</h2>
-				  	<h2>{{ randomFilmTags }}</h2>
-					<h2></h2>
-					<a href = "{{ DLLink }}" traget="_blank"><button type="submit" name="btn" class="btn btn-primary">Скачать с rutracker</button></a>
-			  	</div>
-				<div class="col-lg-3">
-					<div class="poster">
-						<img src = "{{ url_for('static', filename = 'poster.jpg') }}">
-						<div calss="caption">
-							<h1>{{ randomFilmRating }}</h1>
-						</div>
-					</div>
-			  	</div>
-				<div class="col-lg-3"></div>
-  			</div>
-		</center>
+		<div class= "container">
+			<ul>
+				<li><button type="submit" class="btn btn-primary">Sasha Ryzhov Name Generator</button></li>
+				<li><button type="submit" class="btn btn-primary">Svoya Igra Web</button></li>
+			<ul>
+  		</div>
 	</body>
 </html>
