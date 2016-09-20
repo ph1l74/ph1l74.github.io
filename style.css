@@ -7,7 +7,7 @@ html, body {
 }
 .container {
     width: 520px;
-    margin-top: 50%;
+    margin-top: 0%;
 }
 .button-group {
     margin-bottom: 20px;
@@ -21,7 +21,7 @@ ul.hr {
 }
 ul.hr li {
     display: inline;
-    border: 1px solid #000;
+    border: 0px solid #000;
     margin-right: 5px;
     margin-top: 20px;
     margin-bottom: 10px;
