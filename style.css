@@ -8,6 +8,7 @@ html, body {
 .container {
     width: 520px;
     margin-top: 0%;
+    border: 1px;
 }
 .button-group {
     margin-bottom: 20px;
