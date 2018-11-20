@@ -210,10 +210,12 @@
         //     console.log('response', response);
         // })
 
-        $.getJSON('http://anyorigin.com/go?url=http%3A//rating.chgk.info/api/players/1683/rating/last&callback=?', function(data){
+        $.getJSON('https://crossorigin.me/http://rating.chgk.info/api/players/1683/rating/last', function(data){
             // $('#output').html(data.contents);
-            console.log(data.contents);
+            console.log(data.contents)
         });
+
+        
 
         // $.getJSON('https://anyorigin.com/go?url=https%3A//www.imdb.com/user/ur56310167/ratings&callback=?', function(data){
         //     // $('#output').html(data.contents);
