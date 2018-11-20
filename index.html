@@ -1,17 +1,238 @@
-<!doctype html>
-<html lang = "ru">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="refresh" content="0; url=https://ph1l74.github.io/site/" />
-		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-		<link href="style.css" rel="stylesheet">
-	</head>
-	<body>
-		<div class= "container">
-			<ul class="hr">
-				<li><a href="/sasha"><button type="submit" class="btn btn-primary">Sasha Ryzhov Name Generator</button></a></li>
-				<li><a href="/si-web"><button type="submit" class="btn btn-primary">Svoya Igra Web</button></a></li>
-			<ul>
-  		</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ph1l74.com</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"> -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+		}
+
+        .photos {
+            display: inline-block;
+        }
+
+        .audios {
+            width: 960px;
+        }
+
+        .audios-recent {
+            float: left;
+        }
+
+        .audios-topchart{
+            float:right;
+        }
+
+        .card {
+            border-radius: 4px;
+            border: 2px red solid;
+            padding: 0px 12px;
+            line-height: 0;
+            margin-top: 10px;
+            background: lightgray;
+            width: 444px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="output"></div>
+    <div class="main">
+        <div class="photos digital" id="digitalPhoto">
+        </div>
+        <div class="photos film" id="filmPhoto">
+        </div>
+        <div class="photos mobile" id="mobilePhoto">
+        </div>
+        <div class="audios">
+            <div class="audios-recent" id="recentTracks">
+            <h1>Recent Listens</h1>
+            </div>
+            <div class="audios-topchart" id="topAlbums">
+            <h1>Top Albums</h1>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+    <script>
+        // url = "https://ph1l74.tumblr.com/api/read/json";
+
+        function getTumblrDigitalPhoto(limit) {
+            if (!limit) {
+                var limit = 3;
+            }
+            $.ajax({
+                type: 'GET',
+                url: "https://ph1l74.tumblr.com/api/read/json?tagged=digital",
+                async: false,
+                jsonpCallback: 'jsonCallback',
+                contentType: 'application/json',
+                dataType: 'jsonp',
+                success: function (json) {
+                    i = 0;
+                    while (i < limit) {
+                        $("#digitalPhoto").append('<div class="digitalphoto"><img id="digitalPhoto_1" src="' + json.posts[i]['photo-url-250'] + '" /></div>');
+                        i++;
+                    }
+                },
+                error: function (e) {
+                    console.log(e.message);
+                }
+            });
+        }
+
+        function getTumblrFilmPhoto(limit) {
+            if (!limit) {
+                var limit = 3;
+            }
+            $.ajax({
+                type: 'GET',
+                url: "https://ph1l74.tumblr.com/api/read/json?tagged=filmphoto",
+                async: false,
+                jsonpCallback: 'jsonCallback',
+                contentType: 'application/json',
+                dataType: 'jsonp',
+                success: function (json) {
+                    i = 0;
+                    while (i < limit) {
+                        $("#filmPhoto").append('<div class="filmphoto"><img id="filmPhoto_1" src="' + json.posts[i]['photo-url-250'] + '" /></div>');
+                        i++;
+                    }
+                },
+                error: function (e) {
+                    console.log(e.message);
+                }
+            });
+        }
+
+        function getTumblrMobilePhoto(limit) {
+            if (!limit) {
+                var limit = 3;
+            }
+            $.ajax({
+                type: 'GET',
+                url: "https://ph1l74.tumblr.com/api/read/json?tagged=mobilephotography",
+                async: false,
+                jsonpCallback: 'jsonCallback',
+                contentType: 'application/json',
+                dataType: 'jsonp',
+                success: function (json) {
+                    i = 0;
+                    while (i < limit) {
+                        $("#mobilePhoto").append('<div class="mobilephoto"><img id="mobilePhoto_1" src="' + json.posts[i]['photo-url-250'] + '" /></div>');
+                        i++;
+                    }
+                },
+                error: function (e) {
+                    console.log(e.message);
+                }
+            });
+        }
+
+        function getLastFMRecentTracks(limit) {
+            if (!limit) {
+                var limit = 5;
+            }
+            $.ajax({
+                type: 'GET',
+                url: 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=ph1l74&api_key=7f6a86c5dc710c6e2e6aa4d9066e4c14&format=json',
+                contentType: 'application/json',
+                success: function (json) {
+                    // console.log(json['recenttracks']['track']);
+                    i = 0;
+                    while (i < limit) {
+                        var trackName = json['recenttracks']['track'][i]['name'];
+                        var artist = json['recenttracks']['track'][i]['artist']['#text'];
+                        var albumName = json['recenttracks']['track'][i]['album']['#text'];
+                        //console.log(artist + ' - ' + trackName + ' (' + albumName + ')');
+                        $("#recentTracks").append('<div class="recent card"><h3>'+trackName+'</h3><h4>'+artist+'</h4><h4>'+albumName+'</h4></div>');
+                        i++;
+                    }
+                },
+                error: function (e) {
+                    console.log(e.message);
+                }
+            });
+        }
+
+        function getLastFMTopAlbums(period, limit) {
+            if (!period) {
+                var period = '1month';
+            }
+            if (!limit) {
+                var limit = 5;
+            }
+            $.ajax({
+                type: 'GET',
+                url: 'http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=ph1l74&period=' + period + '&api_key=7f6a86c5dc710c6e2e6aa4d9066e4c14&format=json',
+                contentType: 'application/json',
+                success: function (json) {
+                    // console.log(json['topalbums']);
+                    i = 0;
+                    while (i < limit) {
+                        var artistName = json['topalbums']['album'][i]['artist']['name'];
+                        var albumName = json['topalbums']['album'][i]['name'];
+                        var albumCount = json['topalbums']['album'][i]['playcount'];
+                        var number = i + 1;
+                        //console.log(number + ': ' + artistName + ' - ' + albumName + ' (' + albumCount + ')');
+                        $("#topAlbums").append('<div class="top card"><h3>'+albumName+'</h3><h4>'+artistName+'</h4><h4>'+albumCount+'</h4></div>');
+                        i++;
+                    }
+                },
+                error: function (e) {
+                    console.log(e.message);
+                }
+            });
+        }
+
+        // getTumblrDigitalPhoto();
+        // getTumblrFilmPhoto();
+        // getTumblrMobilePhoto();
+        // getLastFMRecentTracks();
+        // getLastFMTopAlbums();
+
+
+        // $.get('https://www.freecodecamp.com/codemzy', function(response) {
+        //     console.log(response);
+        // });
+
+        // $.get('https://www.imdb.com/user/ur56310167/ratings', function(response){
+        //     console.log('response', response);
+        // })
+
+        $.getJSON('http://anyorigin.com/go?url=https%3A//www.imdb.com/user/ur56310167/ratings&callback=?', function(data){
+            // $('#output').html(data.contents);
+            console.log("data", data);
+            console.log("data.contents", data.contents);
+        });
+
+        // $.ajax(
+        //     url: 'http://anyorigin.com/go?url='+encodeURIComponent("https://www.imdb.com/user/ur56310167/ratings"),
+        //     type: 'GET',
+        //     headers: {
+        //         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        //         'Accept-Encoding': 'gzip, deflate, br',
+        //         'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
+        //         'Cache-Control': 'max-age=0',
+        //         // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        //         'Content-Type': 'text/plain',
+        //         'Origin': 'http://ph1l74.tumblr.com'
+        //         },
+        //     success: function(data){console.log('success!', data)},
+        //     error: function(e){console.log('error!', e.message)}
+        // }) 
+
+    </script>
+</body>
+
 </html>
