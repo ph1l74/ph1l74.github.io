@@ -210,27 +210,27 @@
         //     console.log('response', response);
         // })
 
-        // $.getJSON('https://anyorigin.com/go?url=https%3A//www.imdb.com/user/ur56310167/ratings&callback=?', function(data){
-        //     // $('#output').html(data.contents);
-        //     console.log("data", data);
-        //     console.log("data.contents  ", data.contents);
-        // });
+        $.getJSON('https://anyorigin.com/go?url=https%3A//www.imdb.com/user/ur56310167/ratings&callback=?', function(data){
+            // $('#output').html(data.contents);
+            console.log("data", data);
+            console.log("data.contents  ", data.contents);
+        });
 
-        $.ajax({
-            url: 'https://www.imdb.com/user/ur56310167/ratings',
-            type: 'GET',
-            headers: {
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                'Accept-Encoding': 'gzip, deflate, br',
-                'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
-                'Cache-Control': 'max-age=0',
-                // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                'Content-Type': 'text/plain',
-                'Origin': 'https://ph1l74.github.io/'
-                },
-            success: function(data){console.log('success!', data)},
-            error: function(e){console.log('error!', e.message)}
-        }) 
+        // $.ajax({
+        //     url: 'https://www.imdb.com/user/ur56310167/ratings',
+        //     type: 'GET',
+        //     headers: {
+        //         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+        //         'Accept-Encoding': 'gzip, deflate, br',
+        //         'Accept-Language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
+        //         'Cache-Control': 'max-age=0',
+        //         // 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        //         'Content-Type': 'text/plain',
+        //         'Origin': 'https://ph1l74.github.io/'
+        //         },
+        //     success: function(data){console.log('success!', data)},
+        //     error: function(e){console.log('error!', e.message)}
+        // }) 
 
     </script>
 </body>
