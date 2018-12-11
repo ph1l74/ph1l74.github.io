@@ -25,6 +25,7 @@ function setCookie(cname, cvalue, exdays) {
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ';' + expires + ';path=/;'
+    console.log("set", cname, cvalue);
 }
 
 
@@ -133,7 +134,7 @@ function updateRoundInfo() {
 
 // change cost and if cost 50 increment the round
 function nextQuestion() {
-    if (curCost != 50) curCost += 10;
+    if (curCost < 50) curCost += 10;
     else {
         curCost = 10;
         curRound += 1;
@@ -154,20 +155,23 @@ window.onload = function () {
         createBlankTable();
     }
 
-    else if (curRound == "" || !curRound || curCost == "" || !curCost) {
-        curRound = 1;
-        curCost = 10;
-        createBlankTable();
-    } 
-
     // Else render table with last stats
     else {
         cStats = JSON.parse(cStats);
-        curRound = parseInt(curRound, 10);
-        curCost = parseInt(curCost, 10);
         for (var player in cStats) {
             createPlayerRow(player, cStats[player].scores);
         }
+    }
+
+    if (curRound == "" || !curRound || curCost == "" || !curCost) {
+        curRound = 1;
+        curCost = 10;
+        createBlankTable();
+    }
+    
+    else {
+        curRound = parseInt(curRound, 10);
+        curCost = parseInt(curCost, 10);
     }
 
     // linking functions to buttons
