@@ -25,7 +25,7 @@ function setCookie(cname, cvalue, exdays) {
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ';' + expires + ';path=/;'
-    console.log("set", cname, cvalue);
+    // console.log("set", cname, cvalue);
 }
 
 
@@ -111,14 +111,18 @@ function clearResults() {
 
 // adding current question cost to current player results 
 function scorePlus(e) {
-    $(e.target).prev().text(cStats[e.target.parentNode.id].scores += curCost);
+    cStats[e.target.parentNode.id].scores += curCost;
+    results = parseInt(cStats[e.target.parentNode.id].scores);
+    $(e.target).prev().text(results);
     setCookie('stats', JSON.stringify(cStats), 2);
 }
 
 
 // adding current question cost to current player results 
 function scoreMinus(e) {
-    $(e.target).nextAll('.playerScores').text(cStats[e.target.parentNode.id].scores -= curCost);
+    cStats[e.target.parentNode.id].scores -= curCost;
+    results = parseInt(cStats[e.target.parentNode.id].scores); 
+    $(e.target).nextAll('.playerScores').text(results);
     setCookie('stats', JSON.stringify(cStats), 2);
 }
 
@@ -166,7 +170,6 @@ window.onload = function () {
     if (curRound == "" || !curRound || curCost == "" || !curCost) {
         curRound = 1;
         curCost = 10;
-        createBlankTable();
     }
     
     else {
