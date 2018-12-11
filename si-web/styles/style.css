@@ -1,0 +1,211 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: lightgrey;
+}
+
+.main {
+    width: 960px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    background: white;
+}
+
+.header {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 2em;
+    color: rgb(0, 62, 104);
+    margin-bottom: 20px;
+}
+
+.nav {
+    height: 60px;
+    margin-bottom: 6px;
+    margin-top: 6px;
+}
+
+#statusRound{
+    font-weight: 400;
+    font-size: 1.2em;
+    color: rgb(0, 62, 104);
+}
+
+#statusCost{
+    font-weight: 200;
+    font-size: 1.2em;
+    color: rgb(0, 62, 104);
+}
+
+.leftSideNav {
+    float:left;
+    width: 406px;
+}
+
+.rightSideNav {
+    display: inline-flex;
+    padding-right: 0px;
+    height: 50px;
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+}
+
+#nextQuestion{
+    background: rgb(0, 125, 209);
+    border-radius: 6px 0px 0px 6px;
+    height: 24px;
+    width: 200px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);        
+    border-right: 1px  solid;
+    border-color: rgb(35, 165, 252);
+    padding-top: 12px;
+    height: 38px;
+    }
+
+#nextQuestion:hover{
+    background: rgb(35, 165, 252);
+}
+
+#nextQuestion:active{
+    background: rgb(0, 62, 104);
+}
+
+#addPlayer{
+    background: rgb(0, 125, 209);
+    height: 24px;
+    width: 150px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    border-right: 1px  solid;
+    border-color: rgb(35, 165, 252);
+    padding-top: 12px;
+    height: 38px;
+    }
+
+#addPlayer:hover{
+    background: rgb(35, 165, 252);
+}
+
+#addPlayer:active{
+    background: rgb(0, 62, 104);
+}
+
+#clearResults{
+    background: rgb(59, 59, 59);
+    border-radius: 0px 6px 6px 0px;
+    width: 200px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12) ;        
+    padding-top: 12px;
+    height: 38px;
+    }
+
+#clearResults:hover{
+    background: rgb(117, 117, 117);
+}
+
+#clearResults:active{
+    background: rgb(39, 39, 39);
+}
+
+.blankTable {
+    padding: 100px;
+    font-weight: 400;
+    font-size: 1.2em;
+    text-align: center;
+    color: rgb(0, 62, 104);
+}
+
+.blankTableTitle {
+    text-transform: uppercase;
+    font-size: 1.4em;
+}
+
+.blankTableDesc{
+    margin-top: 4px;
+}
+
+.playerDiv {
+    margin-top: 10px;
+    height: 50px;
+    font-weight: 400;
+    font-size: 24px;
+    display: flex;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12) ;        
+}
+
+.buttonSection {
+    width: 25%;
+}
+
+.playerName {
+    width: 25%;
+    text-align:center;
+    padding: 6px 14px;
+}
+
+.playerScores {
+    width:25%;
+    text-align:center;
+    padding: 6px 14px;
+}
+
+.plusButton {
+    background: rgb(37, 109, 37);
+    width: 25%;
+    color: white;
+    text-align: center;
+    font-weight: 200;
+    cursor: pointer; 
+    border-radius: 0px 6px 6px 0px;
+    font-size: 1.4em;
+    
+}
+
+.plusButton::before {
+    content: '+';
+}
+
+.plusButton:hover {
+    background: rgb(60, 173, 60);
+}
+
+.plusButton:active {
+    background: rgb(11, 68, 11);
+}
+
+.minusButton {
+    background: rgb(194, 50, 50);
+    width: 25%;
+    color: white;
+    text-align: center;
+    font-weight: 200;
+    cursor: pointer; 
+    border-radius: 6px 0px 0px 6px;
+    font-size: 1.4em;
+    
+}
+
+.minusButton::before {
+    content: '-';
+    display: block;
+}
+
+.minusButton:hover{
+    background: rgb(230, 37, 37);
+}
+
+.minusButton:active{
+    background: rgb(90, 15, 15);
+}
