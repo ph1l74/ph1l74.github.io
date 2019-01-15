@@ -76,22 +76,7 @@ function checkNames(playerName) {
 
 // adding Player to cStats-object and creating playerDiv
 function addPlayer() {
-    var playerName = prompt("Введите имя нового игрока");
-    var playerScores = 0
-    if (playerName && !checkNames(playerName)) {
-        playerObj = {};
-        playerObj[playerName] = { scores: playerScores };
-        if (JSON.stringify(cStats) == '{}') {
-            $('#playerList').empty();
-        }
-        $.extend(cStats, playerObj);
-        createPlayerRow(playerName, playerScores);
-        setCookie('stats', JSON.stringify(cStats), 2);
-    }
-    else {
-        alert('Введенное имя некорректно');
-        return false
-    };
+    createModalPlayer();
 }
 
 
