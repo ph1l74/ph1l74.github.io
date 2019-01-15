@@ -284,7 +284,7 @@
 
             $.ajax({
                 type: 'GET',
-                url: 'http://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=ph1l74&period=' + period + '&api_key=7f6a86c5dc710c6e2e6aa4d9066e4c14&format=json',
+                url: 'https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=ph1l74&period=' + period + '&api_key=7f6a86c5dc710c6e2e6aa4d9066e4c14&format=json',
                 contentType: 'application/json',
                 success: function (json) {
                     i = 0;
@@ -333,7 +333,7 @@
 
             $.ajax({
                 type: 'GET',
-                url: 'http://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=ph1l74&period=' + period + '&api_key=7f6a86c5dc710c6e2e6aa4d9066e4c14&format=json',
+                url: 'https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=ph1l74&period=' + period + '&api_key=7f6a86c5dc710c6e2e6aa4d9066e4c14&format=json',
                 contentType: 'application/json',
                 success: function (json) {
                     i = 0;
