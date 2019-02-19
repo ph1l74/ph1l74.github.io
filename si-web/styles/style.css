@@ -296,6 +296,64 @@ body {
     }
 }
 
+@media screen and (max-width: 694px) and (orientation: portrait)
+{
+    .header {
+        text-align: center;
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+
+    .nav {
+        height: 130px;
+    }
+
+    .leftSideNav {
+        width:100%
+    }
+
+    .rightSideNav {
+        display: inline-flex;
+        width: 100%;
+        margin-top: 10px;
+        height: 60px;
+        font-size: 1em;
+    }
+
+    #nextQuestion,
+    #addPlayer,
+    #clearResults {
+        height: 42px;
+        padding: 18px 6px 0px 6px;
+    }
+
+    .playerName{
+        overflow: hidden;
+        overflow-wrap: break-word;
+        font-size: 0.8em;
+        text-align: left;
+        padding: 10px 14px;
+    }
+
+    .playerScores{
+        font-size: 1em;
+        text-align: right;
+        padding: 8px 14px;
+    }
+
+    .blankTable{
+        padding: 10px;
+    }
+
+    .blankTableTitle {
+        font-size: 1.1em;
+    }
+
+    .blankTableTitle {
+        font-size: 1em;
+    }
+}
+
 @media screen and (max-width: 648px) and (orientation: landscape)
 {
     .header {
