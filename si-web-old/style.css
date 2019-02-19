@@ -1,38 +1,379 @@
-html, body {
-    padding-top: 10px;
-    font-family:'Roboto', sans-serif;
-    color: #404040;
-    background-color: #eee;
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: lightgrey;
 }
-.container {
-    width: 520px;
-    margin-top: 20px;
+
+.main {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    background: white;
 }
-.button-group {
+
+.header {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 2em;
+    color: rgb(0, 62, 104);
     margin-bottom: 20px;
 }
-.round {
-    font-size:20px;
 
-.question {
-    font-size:50%;
-    color:#111111;
+.nav {
+    height: 60px;
+    margin-bottom: 6px;
+    margin-top: 6px;
 }
 
-    .posts {
-    clear: both;
-    list-style: none;
-    padding-left: 0;
-    width: 100%;
+#statusRound{
+    font-weight: 400;
+    font-size: 1.2em;
+    color: rgb(0, 62, 104);
 }
-.posts li {
-    background-color: #fff;
-    border: 1px solid #d8d8d8;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    word-wrap: break-word;
-    min-height: 42px;
+
+#statusCost{
+    font-weight: 200;
+    font-size: 1.2em;
+    color: rgb(0, 62, 104);
+}
+
+.leftSideNav {
+    float: left;
+    width: 50%;
+}
+
+.rightSideNav {
+    display: flex;
+    padding-right: 0px;
+    height: 50px;
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border-radius: 6px;
+    /* padding-top: 5px; */
+}
+
+#nextQuestion,
+#addPlayer,
+#clearResults{
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);        
+    border-right: 1px  solid;
+    border-color: rgb(35, 165, 252);
+    padding: 4px 6px 8px 6px;
+    height: 38px;
+    
+}
+
+#nextQuestion{
+    border-radius: 6px 0px 0px 6px;
+    background: rgb(0, 125, 209);
+    width: 33%;
+    }
+
+#addPlayer{
+    background: rgb(0, 125, 209);
+    width: 33%;
+}
+    
+#nextQuestion:hover,
+#addPlayer:hover{
+    background: rgb(35, 165, 252);
+}
+
+#nextQuestion:active
+#addPlayer:active{
+    background: rgb(0, 62, 104);
+}
+
+#clearResults{
+    background: rgb(59, 59, 59);
+    border-radius: 0px 6px 6px 0px;
+    width: 34%;
+    border-right: 0px;
+}
+
+#clearResults:hover{
+    background: rgb(117, 117, 117);
+}
+
+#clearResults:active{
+    background: rgb(39, 39, 39);
+}
+
+.blankTable {
+    padding: 100px;
+    font-weight: 400;
+    font-size: 1.2em;
+    text-align: center;
+    color: rgb(0, 62, 104);
+}
+
+.blankTableTitle {
+    text-transform: uppercase;
+    font-size: 1.4em;
+}
+
+.blankTableDesc{
+    margin-top: 4px;
+}
+
+.playerDiv {
+    margin-top: 10px;
+    height: 50px;
+    font-weight: 400;
+    font-size: 24px;
+    display: flex;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12) ;        
+}
+
+.buttonSection {
+    width: 25%;
+}
+
+.playerName {
+    width: 25%;
+    text-align:center;
+    padding: 6px 14px;
+}
+
+.playerScores {
+    width:25%;
+    text-align:center;
+    padding: 6px 14px;
+}
+
+.plusButton {
+    background: rgb(37, 109, 37);
+    width: 25%;
+    color: white;
+    text-align: center;
+    font-weight: 200;
+    cursor: pointer; 
+    border-radius: 0px 6px 6px 0px;
+    font-size: 1.4em;
+}
+
+.plusButton::before {
+    content: '+';
+}
+
+.plusButton:hover {
+    background: rgb(60, 173, 60);
+}
+
+.plusButton:active {
+    background: rgb(11, 68, 11);
+}
+
+.minusButton {
+    background: rgb(194, 50, 50);
+    width: 25%;
+    color: white;
+    text-align: center;
+    font-weight: 200;
+    cursor: pointer; 
+    border-radius: 6px 0px 0px 6px;
+    font-size: 1.4em;
+    
+}
+
+.minusButton::before {
+    content: '-';
+    display: block;
+}
+
+.minusButton:hover{
+    background: rgb(230, 37, 37);
+}
+
+.minusButton:active{
+    background: rgb(90, 15, 15);
+}
+
+@media screen and (max-width: 840px) and (orientation: landscape)
+{
+    .main{
+        /* margin-top: 20px; */
+        margin: 50px auto;
+        padding: 10px;    
+    }
+
+    .header {
+        font-size: 1.4em;
+        text-align: center;
+    }
+    
+    .playerName{
+        overflow: hidden;
+        overflow-wrap: break-word;
+        /* font-size: 12px; */
+        text-align: left;
+        /* padding: 16px 14px; */
+    }
+
+    .playerScores{
+        /* font-size: 14px; */
+        text-align: right;
+        /* padding: 14px 14px; */
+    }
+
+    .leftSideNav {
+        width: 44%;
+    }
+    
+    #nextQuestion,
+    #addPlayer,
+    #clearResults {
+        padding: 4px 6px 8px 6px
+    }
+
+    .blankTable {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 420px) and (orientation: portrait)
+{
+    .header {
+        text-align: center;
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+
+    .nav {
+        height: 130px;
+    }
+
+    .leftSideNav {
+        width:100%
+    }
+
+    .rightSideNav {
+        display: inline-flex;
+        width: 100%;
+        margin-top: 10px;
+        height: 60px;
+        font-size: 12px;
+    }
+
+    #nextQuestion,
+    #addPlayer,
+    #clearResults {
+        height: 48px;
+        padding: 12px 6px 0px 6px;
+    }
+
+    .playerName{
+        overflow: hidden;
+        overflow-wrap: break-word;
+        font-size: 12px;
+        text-align: left;
+        padding: 16px 14px;
+    }
+
+    .playerScores{
+        font-size: 14px;
+        text-align: right;
+        padding: 14px 14px;
+    }
+
+    .blankTable{
+        padding: 10px;
+    }
+
+    .blankTableTitle {
+        font-size: 1.1em;
+    }
+
+    .blankTableTitle {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 648px) and (orientation: landscape)
+{
+    .header {
+        text-align: center;
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+
+    .nav {
+        height: 130px;
+    }
+
+    .leftSideNav {
+        width:100%
+    }
+
+    .rightSideNav {
+        display: inline-flex;
+        width: 100%;
+        margin-top: 10px;
+        height: 60px;
+        font-size: 12px;
+    }
+
+    #nextQuestion,
+    #addPlayer,
+    #clearResults {
+        height: 48px;
+        padding: 12px 6px 0px 6px;
+    }
+
+    .playerName{
+        overflow: hidden;
+        overflow-wrap: break-word;
+        font-size: 12px;
+        text-align: left;
+        padding: 16px 14px;
+    }
+
+    .playerScores{
+        font-size: 14px;
+        text-align: right;
+        padding: 14px 14px;
+    }
+
+    .blankTable{
+        padding: 10px;
+    }
+
+    .blankTableTitle {
+        font-size: 1.1em;
+    }
+
+    .blankTableTitle {
+        font-size: 1em;
+    }
+}
+
+@media screen and (min-width: 1058px) and (orientation: landscape) {
+    #addPlayer{
+        padding: 12px 6px 0px 6px;
+    }
+}
+
+@media screen and (min-width: 1214px) and (orientation: landscape) {
+    #nextQuestion{
+        padding: 12px 6px 0px 6px;
+    }
+}
+
+@media screen and (min-width: 1214px) and (orientation: landscape) {
+    #nextQuestion{
+        padding: 12px 6px 0px 6px;
+    }
+}
+
+@media screen and (min-width: 1247px) and (orientation: landscape) {
+    #clearResults{
+        padding: 12px 6px 0px 6px;
+    }
 }
