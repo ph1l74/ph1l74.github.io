@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Система подсчета очков Своей Игры</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
 
 <body>
@@ -14,7 +16,9 @@
         <div class="container">
             <div class="header">
                 Система подсчета очков Своей Игры
+                <div id="settings"><i class="fas fa-wrench"></i></div>
             </div>
+
             <div class="nav">
                 <div class="leftSideNav">
                     <div id="statusRound">
@@ -30,16 +34,26 @@
                     <div id="clearResults">Очистить результаты</div>
                 </div>
             </div>
+            <div id='settingsBar'>
+                <div>
+                    <div class='cost-title'>Стоимость раунда:</div>
+                    <div class='cost-list'>
+                        <ul>
+                            <li class='cost-selector' cost='10'>10</li>
+                            <li class='cost-selector' cost='20'>20</li>
+                            <li class='cost-selector' cost='30'>30</li>
+                            <li class='cost-selector' cost='40'>40</li>
+                            <li class='cost-selector' cost='50'>50</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div id="playerList"></div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="scripts/app.js"></script>
-    <script>
-    // $('<div>').
-    </script>
 </body>
 
 </html>

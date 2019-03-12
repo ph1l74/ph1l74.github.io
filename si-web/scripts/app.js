@@ -34,7 +34,7 @@ function createBlankTable() {
     var playerlist = $('#playerList');
     blankTable = $('<div>').addClass('blankTable');
     blankTableTitle = $('<div>').addClass('blankTableTitle').text('Таблица пуста');
-    blankTableDesc = $('<div>').addClass('blankTableDesc').text('Добавьте игрока, чтобы начать подсчет очков'); 
+    blankTableDesc = $('<div>').addClass('blankTableDesc').text('Добавьте игрока, чтобы начать подсчет очков');
     blankTable.append(blankTableTitle).append(blankTableDesc);
     playerlist.append(blankTable);
 }
@@ -97,12 +97,11 @@ function addPlayer() {
 
 // clearing all results from cStats and writing it to Cookie
 function clearResults() {
-    if (confirm("Вы действительно хотите очистить результаты?")) 
-    { 
+    if (confirm("Вы действительно хотите очистить результаты?")) {
         clearPlayerList();
         cStats = {};
         curRound = 1;
-        curCost = 10;
+        setCost(10);
         setCookie('stats', JSON.stringify(cStats), 2);
         updateRoundInfo();
     }
@@ -111,7 +110,7 @@ function clearResults() {
 
 // adding current question cost to current player results 
 function scorePlus(e) {
-    cStats[e.target.parentNode.id].scores += curCost;
+    cStats[e.target.parentNode.id].scores += parseInt(curCost);
     results = parseInt(cStats[e.target.parentNode.id].scores);
     $(e.target).prev().text(results);
     setCookie('stats', JSON.stringify(cStats), 2);
@@ -120,8 +119,8 @@ function scorePlus(e) {
 
 // adding current question cost to current player results 
 function scoreMinus(e) {
-    cStats[e.target.parentNode.id].scores -= curCost;
-    results = parseInt(cStats[e.target.parentNode.id].scores); 
+    cStats[e.target.parentNode.id].scores -= parseInt(curCost);
+    results = parseInt(cStats[e.target.parentNode.id].scores);
     $(e.target).nextAll('.playerScores').text(results);
     setCookie('stats', JSON.stringify(cStats), 2);
 }
@@ -138,12 +137,36 @@ function updateRoundInfo() {
 
 // change cost and if cost 50 increment the round
 function nextQuestion() {
-    if (curCost < 50) curCost += 10;
+    if (curCost < 50) setCost(parseInt(curCost, 10) + 10);
     else {
-        curCost = 10;
+        setCost(10);
         curRound += 1;
     }
     updateRoundInfo();
+}
+
+function showSettings(e) {
+    var settingsButton = $(e.target).parent();
+
+    if (!settingsButton.attr('class')) {
+        settingsButton.addClass('active');
+        $('#settingsBar').show('blind', 250);
+    }
+    else {
+        $('#settingsBar').hide('blind', 250);
+        settingsButton.removeClass('active');
+    }
+}
+
+function setCost(cost) {
+    curCost = cost;
+    $('.cost-selector').each(function (index, el) {
+        $(el).removeClass('active');
+        
+    });
+    $('li[cost="'+cost+'"]').addClass('active');
+    $('#statusCostSpan').text(cost);
+    setCookie('cost', cost, 2);
 }
 
 
@@ -151,10 +174,10 @@ window.onload = function () {
     // Getting last session info
     cStats = getCookie('stats');
     curRound = getCookie('round');
-    curCost = getCookie('cost');
+    setCost(getCookie('cost'));
 
     // If not remember: start new game
-    if (cStats == "" ||  cStats == "{}" || !cStats) {
+    if (cStats == "" || cStats == "{}" || !cStats) {
         cStats = {};
         createBlankTable();
     }
@@ -169,17 +192,24 @@ window.onload = function () {
 
     if (curRound == "" || !curRound || curCost == "" || !curCost) {
         curRound = 1;
-        curCost = 10;
+        setCost(10);
+
     }
-    
+
     else {
         curRound = parseInt(curRound, 10);
-        curCost = parseInt(curCost, 10);
+        setCost(parseInt(curCost, 10));
     }
 
     // linking functions to buttons
+    $('#settings').click(showSettings);
     $('#addPlayer').click(addPlayer);
     $('#clearResults').click(clearResults);
     $('#nextQuestion').click(nextQuestion);
+    $('.cost-selector').each(function (index, el) {
+        $(el).click(function(){
+            setCost($(el).attr('cost'));
+        });
+    });
     updateRoundInfo();
 }

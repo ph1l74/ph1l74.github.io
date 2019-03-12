@@ -18,6 +18,7 @@ body {
 }
 
 a {
+    animation: appear 1s ease-out 1;
     transition: 0.5s border-radius;
     text-decoration: none;
     color: white;
@@ -29,10 +30,10 @@ a {
 
 a:hover {
     background: linear-gradient(-45deg,  #d9a7c7, #fffcdc);
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 10s ease infinite;
-    -moz-animation: Gradient 10s ease infinite;
-    animation: Gradient 10s ease infinite;
+    background-size: 200% 200%;
+    -webkit-animation: LinkHover 1s ease normal;
+    -moz-animation: LinkHover 1s ease normal;
+    animation: LinkHover 1s ease normal;
     color: #CB356B;
     border-radius: 6px;
 }
@@ -56,6 +57,7 @@ nav {
 }
 
 .avatar {
+    /* animation: appear 1s ease-in 1; */
     height: 450px;
     width: 450px;
     border: 1px white solid;
@@ -69,6 +71,88 @@ nav {
     text-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
+@media screen and (max-width: 822px) and (orientation: portrait)
+{
+    body {
+        font-size: 1em;
+    }
+    .avatar{
+        /* display: none; */
+        height: 200px;
+        width: 200px;
+        margin: 0 auto;
+        margin-top:20px;
+        margin-bottom: 20px;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    ul {
+        text-align: center;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 26px;
+    }
+
+    a {
+        padding: 8px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 860px) and (orientation: landscape)
+{
+    body {
+        font-size: 1em;
+    }
+    .avatar{
+        /* display: none; */
+        height: 200px;
+        width: 200px;
+        margin: 0 auto;
+        margin-top:20px;
+        margin-bottom: 20px;
+    }
+
+    main {
+        flex-direction: column;
+    }
+
+    ul {
+        text-align: center;
+    }
+
+    li {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 26px;
+    }
+
+    a {
+        padding: 8px;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+}
+
+@keyframes Rotate {
+    from {background: linear-gradient(30deg, #007991, #78ffd6, #2f80ed, #56ccf2, #ff8235, #30e8bf);}
+    to {background: linear-gradient(-60deg, #007991, #78ffd6, #2f80ed, #56ccf2, #ff8235, #30e8bf);}
+}
 
 @-webkit-keyframes Gradient {
     0% {
@@ -104,4 +188,55 @@ nav {
     100% {
         background-attachment: 0% 50%;
     }
+}
+
+@-webkit-keyframes LinkHover {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 100%
+    }
+    100% {
+        background-attachment: 0% 0%;
+    }
+}
+
+@-moz-keyframes LinkHover {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 100%
+    }
+    100% {
+        background-attachment: 0% 0%;
+    }
+}
+
+@keyframes LinkHover {
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 100%
+    }
+    100% {
+        background-attachment: 0% 0%;
+    }
+}
+
+@-webkit-keyframes appear {
+    0% { visibility: hidden; opacity: 0; left: -100px; position: relative;}
+    100% { visibility: visible; opacity: 1; left: 0; position: relative;}
+}
+
+@-moz-keyframes appear {
+    0% { visibility: hidden; opacity: 0; left: -100px; position: relative;}
+    100% { visibility: visible; opacity: 1; left: 0; position: relative; }
+}
+
+@keyframes appear {
+    0% { visibility: hidden; opacity: 0; left: -100px; position: relative;}
+    100% { visibility: visible; opacity: 1; left: 0; position: relative;}
 }

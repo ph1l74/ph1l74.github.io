@@ -1,6 +1,7 @@
 body {
     font-family: 'Segoe UI', sans-serif;
     background: lightgrey;
+    color: rgb(0, 62, 104);
 }
 
 .main {
@@ -16,9 +17,24 @@ body {
 .header {
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 2em;
+    font-size: 1.7em;
     color: rgb(0, 62, 104);
     margin-bottom: 20px;
+}
+
+#settings {
+    transition: all 0.5s;
+    float: right;
+    color: grey;
+    cursor: pointer;
+}
+
+#settings:hover {
+    color: rgb(201, 201, 201);
+}
+
+#settings.active {
+    color: rgb(0, 62, 104);
 }
 
 .nav {
@@ -27,13 +43,13 @@ body {
     margin-top: 6px;
 }
 
-#statusRound{
+#statusRound {
     font-weight: 400;
     font-size: 1.2em;
     color: rgb(0, 62, 104);
 }
 
-#statusCost{
+#statusCost {
     font-weight: 200;
     font-size: 1.2em;
     color: rgb(0, 62, 104);
@@ -50,57 +66,106 @@ body {
     height: 50px;
     box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     border-radius: 6px;
-    /* padding-top: 5px; */
 }
 
-#nextQuestion,
-#addPlayer,
-#clearResults{
+#nextQuestion, #addPlayer, #clearResults {
+    transition: all 0.5s;
     text-align: center;
     color: white;
     cursor: pointer;
-    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);        
-    border-right: 1px  solid;
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    border-right: 1px solid;
     border-color: rgb(35, 165, 252);
     padding: 4px 6px 8px 6px;
     height: 38px;
-    
 }
 
-#nextQuestion{
+#nextQuestion {
     border-radius: 6px 0px 0px 6px;
     background: rgb(0, 125, 209);
     width: 33%;
-    }
+}
 
-#addPlayer{
+#addPlayer {
     background: rgb(0, 125, 209);
     width: 33%;
 }
-    
-#nextQuestion:hover,
-#addPlayer:hover{
+
+#nextQuestion:hover, #addPlayer:hover {
     background: rgb(35, 165, 252);
 }
 
-#nextQuestion:active
-#addPlayer:active{
+#nextQuestion:active #addPlayer:active {
     background: rgb(0, 62, 104);
 }
 
-#clearResults{
+#clearResults {
     background: rgb(59, 59, 59);
     border-radius: 0px 6px 6px 0px;
     width: 34%;
     border-right: 0px;
 }
 
-#clearResults:hover{
+#clearResults:hover {
     background: rgb(117, 117, 117);
 }
 
-#clearResults:active{
+#clearResults:active {
     background: rgb(39, 39, 39);
+}
+
+#settingsBar {
+    height: 60px;
+    display: none;
+}
+
+#settingsBar ul {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    font-weight: 200;
+    font-size: 1.2em;
+    color: rgb(0, 62, 104);
+}
+
+#settingsBar>div {
+    height: 60px;
+    line-height: 3.3rem;
+}
+
+.cost-title {
+    font-weight: 200;
+    font-size: 1.2em;
+    display: inline-block;
+}
+
+.cost-list {
+    display: inline-block;
+}
+
+#settingsBar ul li {
+    transition: all 0.5s;
+    display: inline;
+    list-style-type: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    border: 2px solid rgb(0, 125, 209);
+    border-radius: 25px;
+    font-weight: 400;
+    padding: 2px 6px 4px 6px;
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    margin-left: 10px;
+}
+
+#settingsBar ul li:hover {
+    border: 2px solid rgb(35, 165, 252);
+    background: rgb(35, 165, 252);
+    color: white;
+}
+
+#settingsBar ul li.active {
+    color: rgb(255, 255, 255);
+    background: rgb(0, 125, 209);
 }
 
 .blankTable {
@@ -116,7 +181,7 @@ body {
     font-size: 1.4em;
 }
 
-.blankTableDesc{
+.blankTableDesc {
     margin-top: 4px;
 }
 
@@ -129,7 +194,7 @@ body {
     -moz-user-select: none;
     -khtml-user-select: none;
     user-select: none;
-    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12) ;        
+    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .buttonSection {
@@ -138,23 +203,24 @@ body {
 
 .playerName {
     width: 25%;
-    text-align:center;
+    text-align: center;
     padding: 6px 14px;
 }
 
 .playerScores {
-    width:25%;
-    text-align:center;
+    width: 25%;
+    text-align: center;
     padding: 6px 14px;
 }
 
 .plusButton {
+    transition: all 0.5s;
     background: rgb(37, 109, 37);
     width: 25%;
     color: white;
     text-align: center;
     font-weight: 200;
-    cursor: pointer; 
+    cursor: pointer;
     border-radius: 0px 6px 6px 0px;
     font-size: 1.4em;
 }
@@ -172,15 +238,15 @@ body {
 }
 
 .minusButton {
+    transition: all 0.5s;
     background: rgb(194, 50, 50);
     width: 25%;
     color: white;
     text-align: center;
     font-weight: 200;
-    cursor: pointer; 
+    cursor: pointer;
     border-radius: 6px 0px 0px 6px;
     font-size: 1.4em;
-    
 }
 
 .minusButton::before {
@@ -188,72 +254,63 @@ body {
     display: block;
 }
 
-.minusButton:hover{
+.minusButton:hover {
     background: rgb(230, 37, 37);
 }
 
-.minusButton:active{
+.minusButton:active {
     background: rgb(90, 15, 15);
 }
 
-@media screen and (max-width: 840px) and (orientation: landscape)
-{
-    .main{
+@media screen and (max-width: 840px) and (orientation: landscape) {
+    .main {
         /* margin-top: 20px; */
-        margin: 50px auto;
-        padding: 10px;    
+        margin: 20px auto;
+        padding: 10px;
     }
-
     .header {
         font-size: 1.4em;
         text-align: center;
     }
-    
-    .playerName{
+    .playerName {
         overflow: hidden;
         overflow-wrap: break-word;
         /* font-size: 12px; */
         text-align: left;
         /* padding: 16px 14px; */
     }
-
-    .playerScores{
+    .playerScores {
         /* font-size: 14px; */
         text-align: right;
         /* padding: 14px 14px; */
     }
-
     .leftSideNav {
         width: 44%;
     }
-    
-    #nextQuestion,
-    #addPlayer,
-    #clearResults {
+    #nextQuestion, #addPlayer, #clearResults {
         padding: 4px 6px 8px 6px
     }
-
     .blankTable {
         padding: 20px;
     }
+    #settings {
+        font-size: 1em;
+        float: right
+    }
 }
 
-@media screen and (max-width: 420px) and (orientation: portrait)
-{
+@media screen and (max-width: 420px) and (orientation: portrait) {
     .header {
         text-align: center;
         font-size: 1.3em;
         margin-bottom: 10px;
     }
-
     .nav {
         height: 130px;
     }
-
     .leftSideNav {
-        width:100%
+        width: 100%
     }
-
     .rightSideNav {
         display: inline-flex;
         width: 100%;
@@ -261,177 +318,185 @@ body {
         height: 60px;
         font-size: 12px;
     }
-
-    #nextQuestion,
-    #addPlayer,
-    #clearResults {
+    #nextQuestion, #addPlayer, #clearResults {
         height: 48px;
         padding: 12px 6px 0px 6px;
     }
-
-    .playerName{
+    .playerName {
         overflow: hidden;
         overflow-wrap: break-word;
         font-size: 12px;
         text-align: left;
         padding: 16px 14px;
     }
-
-    .playerScores{
+    .playerScores {
         font-size: 14px;
         text-align: right;
         padding: 14px 14px;
     }
-
-    .blankTable{
+    .blankTable {
         padding: 10px;
     }
-
     .blankTableTitle {
         font-size: 1.1em;
     }
-
     .blankTableTitle {
         font-size: 1em;
     }
 }
 
-@media screen and (max-width: 694px) and (orientation: portrait)
-{
+@media screen and (max-width: 694px) and (orientation: portrait) {
     .header {
         text-align: center;
         font-size: 1.3em;
         margin-bottom: 10px;
     }
-
     .nav {
         height: 130px;
     }
-
     .leftSideNav {
-        width:100%
+        width: 100%
     }
-
     .rightSideNav {
         display: inline-flex;
         width: 100%;
         margin-top: 10px;
         height: 60px;
-        font-size: 1em;
+        font-size: 0.8em;
     }
-
-    #nextQuestion,
-    #addPlayer,
-    #clearResults {
-        height: 42px;
-        padding: 18px 6px 0px 6px;
+    #nextQuestion, #addPlayer, #clearResults {
+        height: 48px;
+        padding: 12px 6px 0px 6px;
     }
-
-    .playerName{
+    .playerName {
         overflow: hidden;
         overflow-wrap: break-word;
         font-size: 0.8em;
         text-align: left;
         padding: 10px 14px;
     }
-
-    .playerScores{
+    .playerScores {
         font-size: 1em;
         text-align: right;
         padding: 8px 14px;
     }
-
-    .blankTable{
+    .blankTable {
         padding: 10px;
     }
-
     .blankTableTitle {
         font-size: 1.1em;
     }
-
     .blankTableTitle {
         font-size: 1em;
     }
+    #settings {
+        transition: all 0.5s;
+        float: right;
+        color: grey;
+        cursor: pointer;
+        position: absolute;
+        right: 42px;
+        font-size: 2em;
+        top: 132px;
+    }
+    #settingsBar>div {
+        height: 60px;
+        line-height: 1;
+    }
+    .cost-title {
+        font-weight: 200;
+        font-size: 1.2em;
+        display: block;
+        text-align: center;
+    }
+    .cost-list {
+        display: block;
+        margin-top: 12px;
+        text-align: center;
+    }
+    #settingsBar ul li {
+        margin-left: 2px;
+    }
 }
 
-@media screen and (max-width: 648px) and (orientation: landscape)
-{
+@media screen and (max-width: 648px) and (orientation: landscape) {
     .header {
         text-align: center;
         font-size: 1.3em;
         margin-bottom: 10px;
     }
-
     .nav {
-        height: 130px;
+        height: 104px;
     }
-
     .leftSideNav {
-        width:100%
+        width: 100%
     }
-
     .rightSideNav {
         display: inline-flex;
         width: 100%;
         margin-top: 10px;
-        height: 60px;
+        height: 42px;
         font-size: 12px;
     }
-
-    #nextQuestion,
-    #addPlayer,
-    #clearResults {
-        height: 48px;
+    #nextQuestion, #addPlayer, #clearResults {
+        height: 30px;
         padding: 12px 6px 0px 6px;
     }
-
-    .playerName{
+    .playerName {
         overflow: hidden;
         overflow-wrap: break-word;
         font-size: 12px;
         text-align: left;
         padding: 16px 14px;
     }
-
-    .playerScores{
+    .playerScores {
         font-size: 14px;
         text-align: right;
         padding: 14px 14px;
     }
-
-    .blankTable{
+    .blankTable {
         padding: 10px;
     }
-
     .blankTableTitle {
         font-size: 1.1em;
     }
-
     .blankTableTitle {
         font-size: 1em;
+    }
+    #settingsBar>div {
+        height: 60px;
+    }
+    .cost-title {
+        font-size: 1em;
+    }
+    #settingsBar ul {
+        font-size: 1em;
+    }
+    #settingsBar ul li {
+        margin-left: 14px;
     }
 }
 
 @media screen and (min-width: 1058px) and (orientation: landscape) {
-    #addPlayer{
+    #addPlayer {
         padding: 12px 6px 0px 6px;
     }
 }
 
 @media screen and (min-width: 1214px) and (orientation: landscape) {
-    #nextQuestion{
+    #nextQuestion {
         padding: 12px 6px 0px 6px;
     }
 }
 
 @media screen and (min-width: 1214px) and (orientation: landscape) {
-    #nextQuestion{
+    #nextQuestion {
         padding: 12px 6px 0px 6px;
     }
 }
 
 @media screen and (min-width: 1247px) and (orientation: landscape) {
-    #clearResults{
+    #clearResults {
         padding: 12px 6px 0px 6px;
     }
 }
