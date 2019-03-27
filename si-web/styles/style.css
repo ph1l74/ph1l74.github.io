@@ -1,179 +1,261 @@
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: lightgrey;
-    color: rgb(0, 62, 104);
+html {
+    height: 100%;
 }
 
-.main {
-    width: 80%;
-    margin: auto;
-    margin-top: 50px;
-    padding: 20px;
-    border-radius: 6px;
-    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    background: white;
+body {
+    /* transition: background 5s ease 1s; */
+    /* transition: color 5s ease 1s; */
+    /* font-family: 'Segoe UI', sans-serif; */
+    font-family: 'Roboto Slab', serif;
+    /* font-family: 'Montserrat', sans-serif; */
+    /* font-family: 'Ubuntu', sans-serif; */
+    /* font-family: 'Open Sans', sans-serif; */
+
+    /* background: rgba(223, 249, 251, 1.0);; */
+    background: rgba(35, 37, 38, 1.0);
+    /* background: -webkit-linear-gradient(195deg, rgba(53, 59, 72,1.0), rgba(47, 54, 64,1.0)); */
+    /* background: linear-gradient(195deg, rgba(53, 59, 72,1.0), rgba(47, 54, 64,1.0)); */
+    /* color: rgba(30, 39, 46, 1.0); */
+    color: rgba(223, 249, 251, 1.0);
 }
 
 .header {
     text-transform: uppercase;
     font-weight: 400;
     font-size: 1.7em;
-    color: rgb(0, 62, 104);
-    margin-bottom: 20px;
-}
-
-#settings {
-    transition: all 0.5s;
-    float: right;
-    color: grey;
-    cursor: pointer;
-}
-
-#settings:hover {
-    color: rgb(201, 201, 201);
-}
-
-#settings.active {
-    color: rgb(0, 62, 104);
-}
-
-.nav {
-    height: 60px;
-    margin-bottom: 6px;
-    margin-top: 6px;
-}
-
-#statusRound {
-    font-weight: 400;
-    font-size: 1.2em;
-    color: rgb(0, 62, 104);
-}
-
-#statusCost {
-    font-weight: 200;
-    font-size: 1.2em;
-    color: rgb(0, 62, 104);
-}
-
-.leftSideNav {
-    float: left;
-    width: 50%;
-}
-
-.rightSideNav {
-    display: flex;
-    padding-right: 0px;
-    height: 50px;
-    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    border-radius: 6px;
-}
-
-#nextQuestion, #addPlayer, #clearResults {
-    transition: all 0.5s;
     text-align: center;
-    color: white;
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 60px;
+    height: 60px;
+    color: rgba(223, 249, 251, 1.0);
+}
+
+.main {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.settings {
+    height: 62px;
+}
+
+#settingsButton {
+    float: right;
+    margin-right: -6px;
+}
+
+/* Buttons block */
+
+.button {
+    border: 3px solid rgba(223, 249, 251, .2);
+    transition: all 0.25s;
+    padding: 6px;
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 2em;
+    margin-right: 10px;
     cursor: pointer;
-    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    border-right: 1px solid;
-    border-color: rgb(35, 165, 252);
-    padding: 4px 6px 8px 6px;
-    height: 38px;
 }
 
-#nextQuestion {
-    border-radius: 6px 0px 0px 6px;
-    background: rgb(0, 125, 209);
-    width: 33%;
-}
-
-#addPlayer {
-    background: rgb(0, 125, 209);
-    width: 33%;
-}
-
-#nextQuestion:hover, #addPlayer:hover {
-    background: rgb(35, 165, 252);
-}
-
-#nextQuestion:active #addPlayer:active {
-    background: rgb(0, 62, 104);
-}
-
-#clearResults {
-    background: rgb(59, 59, 59);
-    border-radius: 0px 6px 6px 0px;
-    width: 34%;
-    border-right: 0px;
-}
-
-#clearResults:hover {
-    background: rgb(117, 117, 117);
-}
-
-#clearResults:active {
-    background: rgb(39, 39, 39);
+.button:hover {
+    background: rgba(223, 249, 251, .2);
 }
 
 #settingsBar {
-    height: 60px;
     display: none;
 }
 
-#settingsBar ul {
-    margin-block-start: 0;
-    margin-block-end: 0;
-    padding-inline-start: 0;
-    font-weight: 200;
-    font-size: 1.2em;
-    color: rgb(0, 62, 104);
+#settingsBar .button {
+    display: inline-block;
+    opacity: 0;
+    margin-right: 6px;
 }
 
-#settingsBar>div {
+.button:hover {
+    color: rgba(223, 249, 251, 1.0);
+}
+
+.button-icon {
+    transition: 0.5s fill;
+    margin: 6px auto;
+    fill: rgba(223, 249, 251, .2);
+    color: rgba(223, 249, 251, .2);
+}
+
+.button-icon:hover {
+    fill: rgba(128, 142, 155, 1.0);
+}
+
+.button-icon.daymode {
+    fill: rgba(35, 37, 38, .5);
+}
+
+
+.button-icon:active {
+    fill: rgba(128, 142, 155, 1.0);
+}
+
+.button:hover .button-icon {
+    fill: white;
+}
+
+.button:hover .button-icon.daymode {
+    fill: rgba(35, 37, 38, .2);
+}
+
+/* Player list */
+
+#playerList {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.playerDiv {
+    transition: background 0.25s ease;
+    margin-top: 10px;
     height: 60px;
-    line-height: 3.3rem;
-}
-
-.cost-title {
-    font-weight: 200;
-    font-size: 1.2em;
-    display: inline-block;
-}
-
-.cost-list {
-    display: inline-block;
-}
-
-#settingsBar ul li {
-    transition: all 0.5s;
-    display: inline;
-    list-style-type: none;
-    cursor: pointer;
-    font-size: 1.2em;
-    border: 2px solid rgb(0, 125, 209);
-    border-radius: 25px;
     font-weight: 400;
-    padding: 2px 6px 4px 6px;
-    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    margin-left: 10px;
+    font-size: 1.2em;
+    line-height: 1;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    /* color: rgba(245, 246, 250, 1.0); */
+    border: 3px solid rgba(245, 246, 250, .2);
+    border-radius: 4px;
+    display: table;
+    width: 100%;
+    vertical-align: middle;
+    /* margin-bottom: 20px; */
 }
 
-#settingsBar ul li:hover {
-    border: 2px solid rgb(35, 165, 252);
-    background: rgb(35, 165, 252);
-    color: white;
+.playerDiv:nth-child(1) {
+    margin-top: 30px;
 }
 
-#settingsBar ul li.active {
-    color: rgb(255, 255, 255);
-    background: rgb(0, 125, 209);
+.playerDiv .minusButton, .playerDiv .playerName, .playerDiv .playerScores, .playerDiv .plusButton {
+    /* display: inline-block; */
+    display: table-cell;
+    vertical-align: middle;
 }
+
+.playerDiv:hover {
+    background: rgba(245, 246, 250, 0.2);
+}
+
+.playerName {
+    width: 60%;
+    text-align: left;
+    vertical-align: middle;
+    /* height: 60px; */
+    padding-left: 20px;
+    word-break: break-all;
+}
+
+.playerScores {
+    width: 20%;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+.minusButton, .plusButton {
+    transition: all 0.25s ease;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-weight: 200;
+    cursor: pointer;
+    font-size: 1.4em;
+}
+
+.minusButton:hover,
+.plusButton:hover {
+    transform: scale(0.9);
+}
+
+.minusButton:active,
+.plusButton:active {
+    transform: scale(0.8);
+}
+
+.button-icon.plus {
+    fill: rgba(106, 176, 76, 1.0);
+    padding-top: 2px;
+}
+
+.button-icon.minus {
+    fill: rgba(232, 65, 24,1.0);
+    padding-top: 2px;
+}
+
+/* Scores */
+
+.scores-div {
+    display: none;
+    width: 100%;
+    height: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.scores-list {
+    list-style: none;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    padding-inline-start: 0;
+    display: table;
+    border-spacing: 20px 0px;
+    margin: auto;
+}
+
+.scores-list li {
+    transition: transform 0.25s ease;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    border: 4px solid transparent;
+    font-size: 1em;
+    font-weight: 800;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.scores-list li:hover{
+    transform: scale(0.9);
+}
+
+.scores-list li:active{
+    transform: scale(0.8);
+}
+
+.scores-list.plus li {
+    border-color: rgba(106, 176, 76, 1.0);
+    color: rgba(106, 176, 76, 1.0);
+}
+
+.scores-list.minus li {
+    border-color: rgba(232, 65, 24,1.0);
+    color: rgba(232, 65, 24,1.0);
+}
+
+/* Blank Table */
 
 .blankTable {
-    padding: 100px;
+    margin-top: 60px;
     font-weight: 400;
     font-size: 1.2em;
     text-align: center;
-    color: rgb(0, 62, 104);
+    /* color: rgba(223, 249, 251, 1.0); */
 }
 
 .blankTableTitle {
@@ -185,318 +267,408 @@ body {
     margin-top: 4px;
 }
 
-.playerDiv {
-    margin-top: 10px;
-    height: 50px;
+
+.modal {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+}
+
+.modal-bg {
+    background: rgba(0, 0, 0, 0.8);
+    margin: 0px;
+    padding: 0px;
+    min-height: 100%;
+    position: fixed;
+    width: 100%;
+}
+
+.modal-window {
+    width: 560px;
+    border-radius: 4px;
+    height: 120px;
+    /* background: rgba(245, 246, 250, 1.0); */
+    /* background: linear-gradient(145deg, rgb(222, 223, 226), rgba(245, 246, 250, 1.0));    */
+    border: 3px solid rgba(245, 246, 250, 0.2);
+    color: rgba(245, 246, 250, 1.0);
+    margin: 20% auto;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 200px;
+}
+
+
+.modal-window.screenshot {
+    height: auto;
+}
+
+.modal-text {
     font-weight: 400;
-    font-size: 24px;
-    display: flex;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    user-select: none;
-    box-shadow: 0 0.005em 0.01em 0 rgba(0, 0, 0, 0.12), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-}
-
-.buttonSection {
-    width: 25%;
-}
-
-.playerName {
-    width: 25%;
-    text-align: center;
-    padding: 6px 14px;
-}
-
-.playerScores {
-    width: 25%;
-    text-align: center;
-    padding: 6px 14px;
-}
-
-.plusButton {
-    transition: all 0.5s;
-    background: rgb(37, 109, 37);
-    width: 25%;
-    color: white;
-    text-align: center;
-    font-weight: 200;
-    cursor: pointer;
-    border-radius: 0px 6px 6px 0px;
     font-size: 1.4em;
+    margin-bottom: 20px;
 }
 
-.plusButton::before {
-    content: '+';
+.modal-input {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    transition: 0.5s all;
+    outline: none;
+    border: 3px solid rgba(245, 246, 250, .2);
+    height: 60px;
+    font-size: 1.2em;
+    border-radius: 4px;
+    padding-left: 4px;
+    width: 550px;
+    background: rgba(245, 246, 250, 1.0);
+    background: transparent;
+    color: rgba(245, 246, 250, 1.0);
 }
 
-.plusButton:hover {
-    background: rgb(60, 173, 60);
+.modal-buttons {
+    width: 600px;
+    height: 0px;
+    margin: auto;
+    margin-bottom: 200px;
 }
 
-.plusButton:active {
-    background: rgb(11, 68, 11);
-}
-
-.minusButton {
-    transition: all 0.5s;
-    background: rgb(194, 50, 50);
-    width: 25%;
-    color: white;
+.modal-accept, .modal-cancel, .modal-download {
+    transition: 0.25s background;
+    border-radius: 4px;
+    height: 60px;
+    /* opacity: 1; */
+    font-weight: 400;
+    font-size: 1.2em;
+    color: rgba(223, 249, 251, 1.0);
+    line-height: 3em;
     text-align: center;
-    font-weight: 200;
     cursor: pointer;
-    border-radius: 6px 0px 0px 6px;
-    font-size: 1.4em;
+    width: 120px;
 }
 
-.minusButton::before {
-    content: '-';
-    display: block;
+.modal-accept {
+    /* border: 20px solid red; */
+    display: none;
+    opacity: 0;
+    float: right;
+    background: rgba(0, 168, 255,1.0);
 }
 
-.minusButton:hover {
-    background: rgb(230, 37, 37);
+.modal-cancel{
+    float: left;
+    background: rgba(232, 65, 24,1.0);
 }
 
-.minusButton:active {
-    background: rgb(90, 15, 15);
+.modal-download {
+    display: none;
+    float: left;
+    background: rgba(76, 209, 55,1.0);
 }
 
-@media screen and (max-width: 840px) and (orientation: landscape) {
+.modal-accept:hover {
+    background: rgba(0, 151, 230,1.0);
+}
+
+.modal-download:hover {
+    background: rgba(68, 189, 50,1.0);
+}
+
+.modal-cancel:hover {
+    background: rgba(194, 54, 22,1.0);
+}
+
+.modal-image canvas {
+    /* border: 3px solid rgba(0, 168, 255,1.0); */
+    border-radius: 4px;
+    /* width: 400px; */
+}
+
+.modal-sort {
+    float: right;
+    cursor: pointer;
+}
+
+.modal-sort svg {
+    transition: transform 0.25s ease;
+    fill: rgba(223, 249, 251, 1.0);
+}
+
+.modal-sort:hover svg {
+    transform: scale(0.9);
+}
+
+
+/*  Table results */
+
+div#playerResults {
+    /* display: none; */
+    background: rgba(35, 37, 38, 1.0);
+    padding: 6px;
+    /* border-radius: 4px; */
+    position: absolute;
+    width: 91%;
+    z-index: -1;
+}
+
+.player-results-div {
+    display: table;
+    width: 100%;
+    border-bottom: 1px solid rgba(245, 246, 250, 0.2);
+    margin-bottom: 6px;
+}
+
+.player-results-name {
+    display: table-cell;
+    width: 50%;
+}
+
+.player-results-scores {
+    display: table-cell;
+    width: 50%;
+    text-align: right;
+}
+
+/*  daymodeicon */
+
+#nightmodeicon {
+    /* -moz-transform: scaleX(-1); */
+    /* -webkit-transform: scaleX(-1); */
+    /* -o-transform: scaleX(-1); */
+    /* transform: scaleX(-1); */
+    /* -ms-filter: fliph; */
+    /*IE*/
+    /* filter: fliph; */
+    /* IE */
+}
+
+#daymodeicon {
+    opacity: 0;
+}
+
+/* Mobile devices adaptation */
+
+/* Galaxy S5 */
+
+@media screen and (max-width: 694px) and (orientation: portrait) { 
     .main {
-        /* margin-top: 20px; */
-        margin: 20px auto;
-        padding: 10px;
+        margin-top: 20px;
     }
+
+    .header {
+        margin-top: 0px;
+    }
+
+    .playerDiv {
+        width: 90%;
+        padding-right: 10px;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+
+    .minusButton {
+        margin-right: 10px;
+    }
+
+    .button {
+        border: none;
+        width: 40px;
+        height: 40px;
+    }
+
+    .button-icon {
+        margin: 0px;
+    }
+
+    .modal-window {
+        width: 300px;
+    }
+
+    .modal-buttons {
+        width: 344px;
+    }
+
+    .modal-input {
+        width: 100%;
+    }
+
+    .modal-text {
+        font-size:1.3em;
+    }
+
+    .modal-image canvas {
+        width: 300px !important;
+        height: auto !important;
+    }
+
+    div#playerResults {
+        width: 288px;
+    }
+
+    #settingsButton{
+        margin-right: -2px;
+    }
+
+    .blankTable {
+        margin-top: 0px;
+    }
+    
+    .playerScores {
+        width: 10%;
+    }
+
+    .modal-window.screenshot {
+        margin-top: 80px;
+    }
+
+    #modalImage {
+        max-height: 350px;
+        overflow: scroll;
+    }
+}
+
+/*  Pixel2 */
+
+@media screen and (max-width: 694px) and (orientation: landscape) {
+
+    .main {
+        margin-top: 20px;
+    }
+
+    .header{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .modal-window{
+        margin-top: calc(10%);
+    }
+}
+
+@media screen and (max-width: 731px) and (orientation: landscape) {
+    .header {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+}
+
+/* Iphone 5s */
+
+@media screen and (max-width: 320px) and (orientation: portrait) {
     .header {
         font-size: 1.4em;
-        text-align: center;
-    }
-    .playerName {
-        overflow: hidden;
-        overflow-wrap: break-word;
-        /* font-size: 12px; */
-        text-align: left;
-        /* padding: 16px 14px; */
-    }
-    .playerScores {
-        /* font-size: 14px; */
-        text-align: right;
-        /* padding: 14px 14px; */
-    }
-    .leftSideNav {
-        width: 44%;
-    }
-    #nextQuestion, #addPlayer, #clearResults {
-        padding: 4px 6px 8px 6px
-    }
-    .blankTable {
-        padding: 20px;
-    }
-    #settings {
-        font-size: 1em;
-        float: right
-    }
-}
-
-@media screen and (max-width: 420px) and (orientation: portrait) {
-    .header {
-        text-align: center;
-        font-size: 1.3em;
+        margin-top: 0px;
         margin-bottom: 10px;
     }
-    .nav {
-        height: 130px;
-    }
-    .leftSideNav {
-        width: 100%
-    }
-    .rightSideNav {
-        display: inline-flex;
-        width: 100%;
-        margin-top: 10px;
-        height: 60px;
-        font-size: 12px;
-    }
-    #nextQuestion, #addPlayer, #clearResults {
-        height: 48px;
-        padding: 12px 6px 0px 6px;
-    }
-    .playerName {
-        overflow: hidden;
-        overflow-wrap: break-word;
-        font-size: 12px;
-        text-align: left;
-        padding: 16px 14px;
-    }
-    .playerScores {
-        font-size: 14px;
-        text-align: right;
-        padding: 14px 14px;
-    }
-    .blankTable {
-        padding: 10px;
-    }
-    .blankTableTitle {
-        font-size: 1.1em;
-    }
-    .blankTableTitle {
+
+    .playerDiv {
         font-size: 1em;
+    }
+
+    .playerDiv:nth-child(1) {
+        margin-top: 20px;
+    }
+
+    .modal-window {
+        width: 260px;
+        height: auto;
+        margin-top: 25%;
+    }
+
+    .modal-window.screenshot {
+        max-height: 300px;
+    }
+
+    .modal-buttons {
+        width: 304px;
+    }
+
+    .modal-image canvas {
+        width: 260px !important;
+        height: auto !important;
+    }
+
+    div#playerResults {
+        width: 248px;
+    }
+
+    #modalImage {
+        max-height: 200px;
+        overflow: scroll;
     }
 }
 
-@media screen and (max-width: 694px) and (orientation: portrait) {
+@media screen and (max-width: 568px) and (orientation: landscape) {
     .header {
-        text-align: center;
-        font-size: 1.3em;
+        font-size: 1.5em;
+    }
+
+    .blankTable {
+        margin-top: 20px;
+    }
+
+    .modal-window {
+        width: 400px;
+    }
+
+    .modal-buttons {
+        width: 446px;
+    }
+
+    .modal-input {
+        width: 100%;
+    }
+
+    #modalImage {
+        max-height: 60px;
+        overflow: scroll;
+    }
+
+    .modal-image canvas {
+        width: 400px !important;
+        height: auto !important;
+    }
+
+    .playerDiv {
+        width: 98%;
+        margin: auto;
         margin-bottom: 10px;
     }
-    .nav {
-        height: 130px;
-    }
-    .leftSideNav {
-        width: 100%
-    }
-    .rightSideNav {
-        display: inline-flex;
-        width: 100%;
-        margin-top: 10px;
-        height: 60px;
-        font-size: 0.8em;
-    }
-    #nextQuestion, #addPlayer, #clearResults {
-        height: 48px;
-        padding: 12px 6px 0px 6px;
-    }
-    .playerName {
-        overflow: hidden;
-        overflow-wrap: break-word;
-        font-size: 0.8em;
-        text-align: left;
-        padding: 10px 14px;
-    }
-    .playerScores {
-        font-size: 1em;
-        text-align: right;
-        padding: 8px 14px;
-    }
-    .blankTable {
-        padding: 10px;
-    }
-    .blankTableTitle {
-        font-size: 1.1em;
-    }
-    .blankTableTitle {
-        font-size: 1em;
-    }
-    #settings {
-        transition: all 0.5s;
-        float: right;
-        color: grey;
-        cursor: pointer;
-        position: absolute;
-        right: 42px;
-        font-size: 2em;
-        top: 132px;
-    }
-    #settingsBar>div {
-        height: 60px;
-        line-height: 1;
-    }
-    .cost-title {
-        font-weight: 200;
-        font-size: 1.2em;
-        display: block;
-        text-align: center;
-    }
-    .cost-list {
-        display: block;
-        margin-top: 12px;
-        text-align: center;
-    }
-    #settingsBar ul li {
-        margin-left: 2px;
+
+    #settingsButton {
+        margin-right: 0px;
     }
 }
 
-@media screen and (max-width: 648px) and (orientation: landscape) {
+/* iPhone 6/7 */
+
+
+@media screen and (max-width: 812px) and (orientation: landscape) {
     .header {
-        text-align: center;
-        font-size: 1.3em;
-        margin-bottom: 10px;
+        margin-bottom: 0px;
+        margin-top: 0px;
     }
-    .nav {
-        height: 104px;
-    }
-    .leftSideNav {
-        width: 100%
-    }
-    .rightSideNav {
-        display: inline-flex;
-        width: 100%;
-        margin-top: 10px;
-        height: 42px;
-        font-size: 12px;
-    }
-    #nextQuestion, #addPlayer, #clearResults {
-        height: 30px;
-        padding: 12px 6px 0px 6px;
-    }
-    .playerName {
-        overflow: hidden;
-        overflow-wrap: break-word;
-        font-size: 12px;
-        text-align: left;
-        padding: 16px 14px;
-    }
-    .playerScores {
-        font-size: 14px;
-        text-align: right;
-        padding: 14px 14px;
-    }
-    .blankTable {
-        padding: 10px;
-    }
-    .blankTableTitle {
-        font-size: 1.1em;
-    }
-    .blankTableTitle {
-        font-size: 1em;
-    }
-    #settingsBar>div {
-        height: 60px;
-    }
-    .cost-title {
-        font-size: 1em;
-    }
-    #settingsBar ul {
-        font-size: 1em;
-    }
-    #settingsBar ul li {
-        margin-left: 14px;
-    }
-}
 
-@media screen and (min-width: 1058px) and (orientation: landscape) {
-    #addPlayer {
-        padding: 12px 6px 0px 6px;
+    .playerDiv:nth-child(1) {
+        margin-top: 20px;
     }
-}
 
-@media screen and (min-width: 1214px) and (orientation: landscape) {
-    #nextQuestion {
-        padding: 12px 6px 0px 6px;
+    .modal-window {
+        margin-top: 10%;
     }
-}
 
-@media screen and (min-width: 1214px) and (orientation: landscape) {
-    #nextQuestion {
-        padding: 12px 6px 0px 6px;
+    .modal-window.screenshot {
+        margin-top: 5%;
     }
-}
 
-@media screen and (min-width: 1247px) and (orientation: landscape) {
-    #clearResults {
-        padding: 12px 6px 0px 6px;
+    .modal-bg {
+        position: fixed;
+    }
+
+    #modalImage {
+        max-height: 140px;
+        overflow: scroll;
     }
 }

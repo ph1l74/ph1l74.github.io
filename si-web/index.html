@@ -5,55 +5,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Система подсчета очков Своей Игры</title>
+    <title>Система Подсчета Очков Своей Игры</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
+    <script src="scripts/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+    <script src="scripts/app.js"></script>
 </head>
 
 <body>
     <div class="main">
-        <div class="container">
-            <div class="header">
-                Система подсчета очков Своей Игры
-                <div id="settings"><i class="fas fa-wrench"></i></div>
-            </div>
-
-            <div class="nav">
-                <div class="leftSideNav">
-                    <div id="statusRound">
-                        Раунд номер: <span id="statusRoundSpan"></span>
-                    </div>
-                    <div id="statusCost">
-                        Вопрос за: <span id="statusCostSpan"></span>
-                    </div>
-                </div>
-                <div class="rightSideNav">
-                    <div id="nextQuestion">Следующий вопрос</div>
-                    <div id="addPlayer">Добавить игрока</div>
-                    <div id="clearResults">Очистить результаты</div>
-                </div>
-            </div>
-            <div id='settingsBar'>
-                <div>
-                    <div class='cost-title'>Стоимость раунда:</div>
-                    <div class='cost-list'>
-                        <ul>
-                            <li class='cost-selector' cost='10'>10</li>
-                            <li class='cost-selector' cost='20'>20</li>
-                            <li class='cost-selector' cost='30'>30</li>
-                            <li class='cost-selector' cost='40'>40</li>
-                            <li class='cost-selector' cost='50'>50</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div id="playerList"></div>
+        <div class="header">
+            Система подсчета очков Своей Игры
         </div>
+        <div class="settings">
+            <div id="settingsButton" class="button">
+                <!-- <i class="fas fa-wrench"></i> -->
+                <div class="button-icon settings">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 20 20">
+                        <path fill="none" d="M0 0h20v20H0V0z" />
+                        <path
+                            d="M15.95 10.78c.03-.25.05-.51.05-.78s-.02-.53-.06-.78l1.69-1.32c.15-.12.19-.34.1-.51l-1.6-2.77c-.1-.18-.31-.24-.49-.18l-1.99.8c-.42-.32-.86-.58-1.35-.78L12 2.34c-.03-.2-.2-.34-.4-.34H8.4c-.2 0-.36.14-.39.34l-.3 2.12c-.49.2-.94.47-1.35.78l-1.99-.8c-.18-.07-.39 0-.49.18l-1.6 2.77c-.1.18-.06.39.1.51l1.69 1.32c-.04.25-.07.52-.07.78s.02.53.06.78L2.37 12.1c-.15.12-.19.34-.1.51l1.6 2.77c.1.18.31.24.49.18l1.99-.8c.42.32.86.58 1.35.78l.3 2.12c.04.2.2.34.4.34h3.2c.2 0 .37-.14.39-.34l.3-2.12c.49-.2.94-.47 1.35-.78l1.99.8c.18.07.39 0 .49-.18l1.6-2.77c.1-.18.06-.39-.1-.51l-1.67-1.32zM10 13c-1.65 0-3-1.35-3-3s1.35-3 3-3 3 1.35 3 3-1.35 3-3 3z" />
+                    </svg>
+                </div>
+            </div>
+            <div id="settingsBar">
+                <div id="addPlayer" class="button">
+                    <div class="button-icon addplayer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                            <path d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                    </div>
+                </div>
+                <div id="clearResults" class="button">
+                    <div class="button-icon clear">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                            <path
+                                d="M15 16h4v2h-4zm0-8h7v2h-7zm0 4h6v2h-6zM3 18c0 1.1.9 2 2 2h6c1.1 0 2-.9 2-2V8H3v10zM14 5h-3l-1-1H6L5 5H2v2h12z" />
+                            <path fill="none" d="M0 0h24v24H0z" /></svg>
+                    </div>
+                </div>
+                <div id="screenShot" class="button">
+                    <div class="button-icon screentshot">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3.2" />
+                            <path
+                                d="M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+                            <path d="M0 0h24v24H0z" fill="none" /></svg>
+                    </div>
+                </div>
+                <div id="nightMode" class="button">
+                    <div class="button-icon nightmode">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                            <!-- <path id="nightmodeicon" -->
+                            <!-- d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z" /> -->
+                            <path id="nightmodeicon"
+                                d="M9 2c-1.05 0-2.05.16-3 .46 4.06 1.27 7 5.06 7 9.54 0 4.48-2.94 8.27-7 9.54.95.3 1.95.46 3 .46 5.52 0 10-4.48 10-10S14.52 2 9 2z" />
+                            <path id="daymodeicon"
+                                d="M10.89,6.81c-2.25,0-4.08,1.83-4.08,4.08s1.83,4.08,4.08,4.08s4.08-1.83,4.08-4.08S13.14,6.81,10.89,6.81z M21.37,10.23l-4.03-2.01l1.43-4.27c0.19-0.58-0.36-1.13-0.93-0.93l-4.27,1.43l-2.02-4.03c-0.27-0.54-1.05-0.54-1.32,0L8.22,4.44 L3.94,3.01C3.37,2.82,2.82,3.37,3.01,3.94l1.43,4.27l-4.03,2.02c-0.54,0.27-0.54,1.05,0,1.32l4.03,2.01l-1.43,4.28 c-0.19,0.58,0.36,1.13,0.93,0.93l4.27-1.43l2.01,4.03c0.27,0.54,1.05,0.54,1.32,0l2.01-4.03l4.27,1.43 c0.58,0.19,1.13-0.36,0.93-0.93l-1.43-4.27l4.03-2.01C21.92,11.28,21.92,10.5,21.37,10.23L21.37,10.23z M14.74,14.74 c-2.12,2.12-5.58,2.12-7.7,0s-2.12-5.58,0-7.7s5.58-2.12,7.7,0S16.86,12.62,14.74,14.74z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="playerList"></div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="scripts/app.js"></script>
+    </div>
 </body>
 
 </html>
