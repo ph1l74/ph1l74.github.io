@@ -19,7 +19,7 @@ body {
 
 a {
     animation: appear 1s ease-out 1;
-    transition: 0.5s border-radius;
+    transition: 0.5s transform ease;
     text-decoration: none;
     color: white;
     border: 1px white solid;
@@ -35,7 +35,8 @@ a:hover {
     -moz-animation: LinkHover 1s ease normal;
     animation: LinkHover 1s ease normal;
     color: #CB356B;
-    border-radius: 6px;
+    transform: scale(0.5);
+    /* border-radius: 6px; */
 }
 
 ul {
@@ -149,10 +150,6 @@ nav {
 
 }
 
-@keyframes Rotate {
-    from {background: linear-gradient(30deg, #007991, #78ffd6, #2f80ed, #56ccf2, #ff8235, #30e8bf);}
-    to {background: linear-gradient(-60deg, #007991, #78ffd6, #2f80ed, #56ccf2, #ff8235, #30e8bf);}
-}
 
 @-webkit-keyframes Gradient {
     0% {
@@ -188,55 +185,4 @@ nav {
     100% {
         background-attachment: 0% 50%;
     }
-}
-
-@-webkit-keyframes LinkHover {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 100%
-    }
-    100% {
-        background-attachment: 0% 0%;
-    }
-}
-
-@-moz-keyframes LinkHover {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 100%
-    }
-    100% {
-        background-attachment: 0% 0%;
-    }
-}
-
-@keyframes LinkHover {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 100%
-    }
-    100% {
-        background-attachment: 0% 0%;
-    }
-}
-
-@-webkit-keyframes appear {
-    0% { visibility: hidden; opacity: 0; left: -100px; position: relative;}
-    100% { visibility: visible; opacity: 1; left: 0; position: relative;}
-}
-
-@-moz-keyframes appear {
-    0% { visibility: hidden; opacity: 0; left: -100px; position: relative;}
-    100% { visibility: visible; opacity: 1; left: 0; position: relative; }
-}
-
-@keyframes appear {
-    0% { visibility: hidden; opacity: 0; left: -100px; position: relative;}
-    100% { visibility: visible; opacity: 1; left: 0; position: relative;}
 }
