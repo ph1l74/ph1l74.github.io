@@ -214,6 +214,7 @@ body {
     display: inline-flex;
     justify-content: center;
     width: 100%;
+    padding: 0;
 }
 
 .scores-list li {
@@ -253,7 +254,7 @@ body {
     color: rgba(232, 65, 24,1.0);
 }
 
-.scores-list.plus li:nth-last-child(1) {
+.scores-list li:nth-last-child(1) {
     margin-right: 0;
 }
 
