@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title>S A T A N I S M</title>
+    <style>
+        html,
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            height: 100%;
+            background: #2C3E50;
+            background: -webkit-linear-gradient(to left, #4CA1AF, #2C3E50);
+            background: linear-gradient(to left, #4CA1AF, #2C3E50);
+            color: aliceblue;
+            font-weight: 200;
+        }
+
+        a {
+            text-decoration: none;
+            color: aliceblue;
+            transition: all 0.5s;
+        }
+
+        a:hover {
+            border: 1px solid white;
+            padding: 0px 4px;
+            background: black;
+            border-radius: 4px;
+            background: #E0EAFC;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+            color: darkslategray;
+        }
+
+        .main {
+            margin: 5% 15%;
+            display: inline-flex;
+        }
+
+        .sidebar {
+            width: 200px;
+            margin-right: 60px;
+        }
+
+        nav {
+            margin-top: 3.5em;
+        }
+
+        ul {
+            line-height: 2em;
+        }
+
+        li {
+            border: 1px transparent solid;
+            text-align: right;
+            list-style: none;
+            border-radius: 6px;
+            margin-bottom: 6px;
+            margin-left: 6px;
+            padding-right: 6px;
+            padding-left: 6px;
+            transition: all 0.5s;
+        }
+
+        li:hover {
+            background: #ffffff0d;
+            cursor: pointer;
+        }
+
+        li:active,
+        .activated {
+            border: 1px white solid;
+            border-radius: 6px;
+        }
+
+        .calendar {
+            border-radius: 6px;
+            padding: 9px;
+            background: white;
+        }
+
+        .content {
+            padding: 0px 10px 0px 60px;
+        }
+
+        .rating-div {
+            font-size: 1.4em;
+        }
+
+        .rating-up {
+            font-size: 0.6em;
+            color: rgb(73, 223, 73);
+        }
+
+        .rating-down {
+            font-size: 0.6em;
+            color: rgb(255, 85, 1);
+        }
+
+        .rating-link {
+            margin-top: 2em;
+            font-size: 0.7em;
+        }
+
+        .rating-div,
+        #page-calendar,
+        #page-training {
+            display: none;
+        }
+
+        #page-training article {
+            line-height: 1.6;
+        }
+
+        .calendar-mobile {
+            display: none;
+        }
+
+        .calendar-wide {
+            display: block
+        }
+
+        /* Mobile Version */
+
+        @media screen and (max-width: 800px) {
+            .main {
+                margin: 0;
+                display: block;
+            }
+
+            .sidebar {
+                width: 100%;
+                margin-right: 0px;
+            }
+
+            nav {
+                margin-top: 0;
+            }
+
+            ul {
+                display: flex;
+                justify-content: center;
+                padding: 0;
+            }
+
+            li {
+                display: inline;
+                margin-right: 10px;
+            }
+
+            .content {
+                padding: 0px 10px 0px 30px;
+                margin-bottom: 20px;
+            }
+
+            .calendar {
+                width: 90%;
+            }
+
+            .calendar-mobile {
+                display: block;
+                overflow: scroll;
+            }
+
+            .calendar-wide {
+                display: none;
+            }
+
+            .calendar-mobile-iframe {
+                width: 300px;
+                height: 450px;
+            }
+
+            .rating-position-diff,
+            .rating-diff
+            {
+                margin-left: 20px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class='main'>
+        <div class="sidebar">
+            <nav>
+                <ul>
+                    <li id='link-rating'>Рейтинг</li>
+                    <li id='link-calendar'>Календарь</li>
+                    <li id='link-training'>Тренировка</li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <div id="page-rating">
+                <h1>Рейтинг</h1>
+                <article>
+                    <div class='rating-div'>
+                        <div style="display: inline-flex;">
+                            <div class='rating-current'></div>
+                            <div class='rating-diff'></div>
+                        </div>
+                        <div></div>
+                        <div style="display: inline-flex;">
+                            <div class='rating-current-position'></div>
+                            <div class='rating-position-diff'></div>
+                        </div>
+                        <div class='rating-link'><a href="http://rating.chgk.info/team/5723">Посмотреть на сайте
+                                рейтинга МАК</a></div>
+                    </div>
+
+                </article>
+            </div>
+            <div id="page-calendar">
+                <h1>Календарь</h1>
+                <article>
+                    <div class="calendar">
+                        <div class='calendar-wide'>
+                            <iframe
+                                src="https://calendar.google.com/calendar/embed?src=q0p5869t8fb25c81eo3u9nd3v4%40group.calendar.google.com&ctz=Asia%2FYekaterinburg"
+                                style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+                        </div>
+                        <div class='calendar-mobile'>
+                            <iframe
+                                src="https://calendar.google.com/calendar/embed?src=q0p5869t8fb25c81eo3u9nd3v4%40group.calendar.google.com&ctz=Asia%2FYekaterinburg"
+                                style="border: 0" frameborder="0" class=" calendar-mobile-iframe"></iframe>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div id="page-training">
+                <h1>Тренировка</h1>
+                <article>
+                    <a target="_blank" href="http://rating.chgk.info/documents/38.kodeks2018.pdf">Кодекс</a>
+                    <br />
+                    <a target="_blank" href="https://dinabank.livejournal.com/107131.html">Методические материалы
+                        Яркова ч.1</a>
+                    <br />
+                    <a target="_blank" href="https://dinabank.livejournal.com/124500.html">Методические материалы
+                        Яркова ч.2</a>
+                    <br />
+                    <a target="_blank"
+                        href="https://vk.com/doc7857679_491849821?hash=7a854198afb8ad0c38&dl=35ed5df60c3b4f385b">Методическое
+                        пособие Вашкулата</a>
+                    <br />
+                    <a target="_blank"
+                        href="https://vk.com/doc7857679_491849822?hash=b0015308fd6310e2ab&dl=8994474a821feed830">Методическое
+                        пособие по раскрутке вопросов</a>
+                    <br />
+                    <a target="_blank" href="https://ru-chgk.livejournal.com/2807132.html">Обсуждение всех вопросов
+                        ОКР</a>
+                    <br />
+                    <a target="_blank" href="https://ru-chgk.livejournal.com/2816722.html">Апелляции к ОКР</a>
+                    <br />
+                    <a target="_blank" href="https://ru-chgk.livejournal.com/2870561.html">Обсуждение всех вопросов
+                        Cинхрона Моносова</a>
+                    <br />
+                </article>
+            </div>
+        </div>
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script>
+
+        function hideAll() {
+            $('li').removeClass('activated');
+            $('#page-rating').hide()
+            $('#page-calendar').hide()
+            $('#page-training').hide()
+        }
+
+        $("li").each(function () {
+            $(this).click(function () {
+                var link = '#page' + $(this).attr('id').slice(4);
+                hideAll();
+                $(link).fadeIn('slow');
+                $(this).addClass('activated');
+            })
+        });
+
+
+        function formatRating(rating) {
+            var up_arrow = '<i class="fas fa-long-arrow-alt-up"></i>'
+            var down_arrow = '<i class="fas fa-long-arrow-alt-down"></i>'
+
+            $('.rating-current').first().text('Текущий рейтинг: ' + rating.current_rating);
+            $('.rating-current-position').first().text('Позиция в мире: ' + rating.current_rating_position);
+            var diff_rating = rating.current_rating - rating.prev_rating;
+            var diff_pos = rating.current_rating_position - rating.prev_rating_position
+
+            if (diff_rating > 0) {
+                $('.rating-diff').first().text(diff_rating);
+                $('.rating-diff').first().prepend(up_arrow)
+                $('.rating-diff').first().addClass('rating-up')
+            }
+            else {
+                $('.rating-diff').first().text(diff_rating * (-1));
+                $('.rating-diff').first().prepend(down_arrow)
+                $('.rating-diff').first().addClass('rating-down')
+            }
+
+            if (diff_pos < 0) {
+                $('.rating-position-diff').first().text(diff_pos * (-1));
+                $('.rating-position-diff').first().prepend(up_arrow)
+                $('.rating-position-diff').first().addClass('rating-up')
+            }
+            else {
+                $('.rating-position-diff').first().text(diff_pos);
+                $('.rating-position-diff').first().prepend(down_arrow)
+                $('.rating-position-diff').first().addClass('rating-down')
+            }
+
+            $('#rating-load').fadeOut('slow');
+            $('.rating-div').first().fadeIn('slow');
+        }
+
+
+        function getRating() {
+            $.ajax({
+                type: 'GET',
+                url: "https://mantissa-rating.herokuapp.com/teamrating",
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    formatRating(response);
+                },
+                error: function (e) {
+                    console.log('Error while getting rating... Retrying in 1 sec');
+                    setTimeout(getRating(), 1000);
+                }
+            });
+        }
+
+        getRating()
+
+        $(document).ready(function () {
+            $('li').first().addClass('activated');
+        })
+
+    </script>
+</body>
+
+</html>

@@ -58,11 +58,11 @@ function createScoresDiv(playerId, mode) {
     var scoresDivId = 'scoresDiv_' + playerId;
     var scoresDiv = $('<div>').prop({ id: scoresDivId }).addClass('scores-div');
     var scoresUl = $('<ul>').addClass('scores-list');
-    var scores10 = $('<li>').data({ cost: '10' }).text(10);
-    var scores20 = $('<li>').data({ cost: '20' }).text(20);
-    var scores30 = $('<li>').data({ cost: '30' }).text(30);
-    var scores40 = $('<li>').data({ cost: '40' }).text(40);
-    var scores50 = $('<li>').data({ cost: '50' }).text(50);
+    var scores10 = $('<li>').data({ cost: '10' }).append($('<div>').text(10));
+    var scores20 = $('<li>').data({ cost: '20' }).append($('<div>').text(20));
+    var scores30 = $('<li>').data({ cost: '30' }).append($('<div>').text(30));
+    var scores40 = $('<li>').data({ cost: '40' }).append($('<div>').text(40));
+    var scores50 = $('<li>').data({ cost: '50' }).append($('<div>').text(50));
 
     (mode === 'plus') ? scoresUl.addClass('plus') : scoresUl.addClass('minus');
 
@@ -80,6 +80,7 @@ function createScoresDiv(playerId, mode) {
                     (mode === 'plus') ? scorePlus(playerId, el.data('cost')) : scoreMinus(playerId, el.data('cost'));
                     $('#' + scoresDivId).fadeOut(150);
                     changeAnimation.reverse(0);
+                    $(document).off('click');
                     $('#' + scoresDivId).remove();
                 });
             });
@@ -95,8 +96,6 @@ function createScoresDiv(playerId, mode) {
     });
 
     changeAnimation.play(0);
-
-
 }
 
 
@@ -446,7 +445,8 @@ function createInputModal() {
                     addPlayer(playerId, playerName);
                     animatedTextChange("Игрок добавлен", '.modal-text', delay, 'info', 1500);
                     $('#modalInput').val('');
-                    hideAcceptAnimation.play();
+                    $('#modalInput').removeClass('good');
+                    hideAcceptAnimation.play(0);
                 }
                 else {
                     animatedTextChange("Такое имя игрока уже существует", '.modal-text', delay, 'bad', 1500);
@@ -682,7 +682,6 @@ function makeScreenshot() {
     // Fill table without sort
     fillTable();
 
-
     // Show modal animation
     const showModal = new TimelineLite({
         paused: true,
@@ -705,6 +704,7 @@ function makeScreenshot() {
 
     showModal.play(0);
 
+    var numberOfPlayers = $('#playerResults').children().length;
 
     // Show download button animation
     const showDownload = new TimelineLite({ paused: true, onReverseComplete: function () { closingInAction = false } })
@@ -717,7 +717,9 @@ function makeScreenshot() {
     // Close modal window animation
     function closeScreenshotModal() {
         if (!showDownload.isActive() && !showDownload.isActive()) {
-            showDownload.reverse(0);
+            if (numberOfPlayers) {
+                showDownload.reverse(0);
+            }
             showModal.reverse(0);
         }
     }
@@ -729,15 +731,20 @@ function makeScreenshot() {
 
             $('#playerResults').hide();
             $('#modalImage').empty();
-            $('#modalImage').append(canvas);
 
-            canvas.toBlob(function (blob) {
-                var downloadButton = $('.modal-download')[0];
-                $(downloadButton).off('click');
-                $(downloadButton).on('click', function () { saveAs(blob, 'image.jpeg') });
-                showDownload.play(0);
-
-            }, 'image/png')
+            if (numberOfPlayers < 1) {
+                $('.modal-sort').hide()
+                $('#modalImage').text('Таблица пуста');
+            }
+            else {
+                $('#modalImage').append(canvas);
+                canvas.toBlob(function (blob) {
+                    var downloadButton = $('.modal-download')[0];
+                    $(downloadButton).off('click');
+                    $(downloadButton).on('click', function () { saveAs(blob, 'image.jpeg') });
+                    showDownload.play(0);
+                }, 'image/png')
+            }
         });
     }
 
