@@ -214,6 +214,9 @@ body {
     display: inline-flex;
     justify-content: center;
     width: 100%;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
     padding: 0;
 }
 
