@@ -75,6 +75,16 @@ function createScoresDiv(playerId, mode) {
     const changeAnimation = new TimelineLite({
         paused: true,
         onComplete: function () {
+            $(document).click(function(e){
+                var $target = $(e.target);
+                var targetId = $target.closest('.scores-div').attr('id')
+                if (!targetId || targetId != scoresDivId) {
+                    $('#' + scoresDivId).fadeOut(150);
+                    changeAnimation.reverse(0);
+                    $(document).off('click');
+                    $('#' + scoresDivId).remove();
+                }
+            })
             $.each(scoresCosts, function (index, el) {
                 el.on('click', function () {
                     (mode === 'plus') ? scorePlus(playerId, el.data('cost')) : scoreMinus(playerId, el.data('cost'));
@@ -257,8 +267,8 @@ function showSettings() {
                 { opacity: 0, x: -70 },
                 { opacity: 1, x: 0 }, 0.05, -0.125)
             .fromTo(".button-icon.nightmode", 0.25,
-                { rotation: nightMode ? -25 : 0, rotationY: nightMode ? 180 : '' },
-                { rotation: nightMode ? -45 : 0, rotationY: nightMode ? 180 : '' }, 0.5);
+                { rotation: nightMode ? -25 : 0, rotationY: nightMode ? 180 : 0 },
+                { rotation: nightMode ? -45 : 0, rotationY: nightMode ? 180 : 0 }, 0.5);
 
 
         // Animation on hide
@@ -445,6 +455,7 @@ function createInputModal() {
                     addPlayer(playerId, playerName);
                     animatedTextChange("Игрок добавлен", '.modal-text', delay, 'info', 1500);
                     $('#modalInput').val('');
+                    $('#modalInput').trigger('focus');
                     $('#modalInput').removeClass('good');
                     hideAcceptAnimation.play(0);
                 }
@@ -800,7 +811,10 @@ function toggleNightMode() {
             const toMoon = new TimelineLite({ paused: true });
             toMoon
                 .to('#daymodeicon', 0.1, { opacity: 0 })
-                .to('#nightmodeicon', 0.1, { opacity: 1, rotationY: 180 });
+                .to('#nightmodeicon', 0.1, { opacity: 1, rotationY: 180 })
+                .fromTo(".button-icon.nightmode", 0.25,
+                { rotation: nightMode ? -25 : 0, rotationY: nightMode ? 180 : 0 },
+                { rotation: nightMode ? -45 : 0, rotationY: nightMode ? 180 : 0 }, 0.5);
 
             toMoon.play(0);
 
@@ -846,13 +860,14 @@ window.onload = function () {
         }
     }
 
-
+    console.log("nightmode:", getCookie('nightMode'));
     nightMode = getCookie('nightMode');
-    if (nightMode == 'false') {
+    if (nightMode && nightMode == 'false') {
         toggleNightMode();
     }
-    else if (nightMode == 'true')
+    else {
         nightMode = true;
+    }
 
     // linking functions to buttons
     $('#settingsButton').click(showSettings);
