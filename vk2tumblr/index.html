@@ -15,9 +15,17 @@
     </div>
     <script type="text/javascript">
         VK.init({
-          apiId: "67tj6al4yL1u3503X7UP"
+            apiId: "67tj6al4yL1u3503X7UP"
+        }, function(){
+            console.log('loaded')
         });
-      </script>
+
+        VK.Api.call('photos.get', { ownerd_id: -26716320, album_id: 258438904, v: "5.73" }, function (r) {
+            if (r.response) {
+                console.log('response: ', r.response);
+            }
+        });
+    </script>
 </body>
 
 </html>
