@@ -17,6 +17,12 @@
         VK.init({
             apiId: "7061701"
         });
+
+        const getPhotos = (groupId, albumId) => {
+            VK.Api.call('photos.get', { ownerd_id: groupId, album_id: albumId, access_token: "656dade5656dade5656dade5ca65066d206656d656dade5385d91f08eaf1f31123a8c88", v: "5.101" }, function (r) {
+                console.log('response: ', r);
+            });
+        }
     </script>
 </body>
 
