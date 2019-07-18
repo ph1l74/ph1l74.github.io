@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://vk.com/js/api/xd_connection.js?2" type="text/javascript"></script>
+    <title>vk-test</title>
+</head>
+
+<body>
+    <div id="content">
+
+    </div>
+    <script type="text/javascript">
+        VK.init(function () {
+            // API initialization succeeded 
+            // Your code here
+            VK.api("photos.get", { "ownerd_id": "-26716320", "album_id": "258438904", "v": "5.73" }, function (data) {
+                alert("Post ID:" + data.response.post_id);
+            });
+        }, function () {
+            // API initialization failed 
+            // Can reload page here 
+            console.log('vk api failed')
+        }, '5.101'); 
+    </script>
+</body>
+
+</html>
