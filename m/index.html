@@ -34,8 +34,10 @@
         }
 
         .stack-element {
-            margin-right: 2px;
-            margin-left: 2px;
+            margin-right: 1px;
+            margin-left: 1px;
+            padding-left: 2px;
+            padding-right: 2px;
         }
 
         .project {
@@ -60,31 +62,28 @@
 </head>
 
 <body>
-    <div class="uk-section-small uk-section-default" uk-sticky="bottom: #offset">
+    <div class="uk-section-small uk-section-default">
         <div class="uk-container">
-            <div class="uk-grid-match uk-child-width-1-2@s" uk-grid>
-                <div>
-                    <article class="uk-comment">
-                        <header class="uk-comment-header uk-grid-medium uk-flex-middle" uk-grid>
-                            <div class="uk-width-auto">
-                                <img class="uk-comment-avatar"
-                                    src="https://sun3-4.userapi.com/c849136/v849136866/c2d45/Ac-73m-NFNc.jpg" width="80"
-                                    height="80" alt="">
-                            </div>
-                            <div class="uk-width-expand">
-                                <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset"
-                                        href="#"></a>Filat
-                                    Astakhov</a></h4>
-                                <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                                    <li>Bank of Russian Federation</li>
-                                    <li>Developer</li>
-                                </ul>
-                            </div>
-                        </header>
-                    </article>
-                </div>
+            <div class="uk-grid-match uk-child-width-1-1" uk-grid>
                 <div class="uk-width-expand">
-                    <h1 class="uk-text-right">ph1l74.github.io</h1>
+                    <h1 class="uk-heading-line uk-text-center uk-animation-slide-top-medium">
+                        <span>ph1l74.github.io</span></h1>
+                </div>
+                <div class=" uk-margin-remove-bottom">
+                    <div class="uk-width-1-1 uk-text-center uk-animation-slide-top">
+                        <img class="uk-comment-avatar uk-border-circle"
+                            src="https://sun3-4.userapi.com/c849136/v849136866/c2d45/Ac-73m-NFNc.jpg" width="80"
+                            height="80" alt="">
+                    </div>
+                    <div class="uk-width-expand uk-text-center uk-animation-slide-top">
+                        <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#"></a>Filat
+                            Astakhov</a></h4>
+                        <!-- <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top"> -->
+                        <p class="uk-comment-meta uk-margin-remove-top uk-margin-remove">Bank of Russian
+                            Federation</p>
+                        <p class="uk-comment-meta uk-margin-remove-top">Developer</p>
+                        <!-- </ul> -->
+                    </div>
                 </div>
             </div>
 
@@ -93,13 +92,13 @@
 
     <div class="uk-section uk-section-secondary uk-preserve-color">
         <div class="uk-container">
-            <!-- <h2 class="uk-light">Actual Projects</h2> -->
+            <h2 class="uk-light uk-text-center">Actual Projects</h2>
 
-            <div class="uk-grid-match uk-child-width-1-4@m uk-child-width-1-1@s" uk-grid>
+            <div class="uk-text-center uk-grid-match uk-child-width-1-1" uk-grid>
 
                 <div class="uk-animation-scale-up project">
                     <a uk-toggle href="#modal" data-link="sposi" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium uk-card-hover">
+                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-card-hover">
                         <h3 class="uk-card-title"><span class="uk-link-heading">СПОСИ</span></h3>
                         <p>Система Подсчет Очков Своей Игры <br> / <br>Jeopardy Scores Counter</p>
                     </a>
@@ -107,7 +106,7 @@
 
                 <div class="uk-animation-scale-up project">
                     <a uk-toggle href="#modal" data-link="vk2tumblr" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium uk-card-hover">
+                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-card-hover">
                         <h3 class="uk-card-title"><span class="uk-link-heading">vk2tumblr</span></h3>
                         <p>Photo album importer. Just add special tag to your tumblr (or any other web-page) and the
                             VK
@@ -116,14 +115,14 @@
                 </div>
                 <div class="uk-animation-scale-up project">
                     <a uk-toggle href="#modal" data-link="artguide" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium uk-card-hover">
+                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-card-hover">
                         <h3 class="uk-card-title"><span class="uk-link-heading">Art-Guide</span></h3>
                         <p>Different courses, videos and other content about art.</p>
                     </a>
                 </div>
                 <div class="uk-animation-scale-up project">
                     <a uk-toggle href="#modal" data-link="mantissa" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium uk-card-hover">
+                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-card-hover">
                         <h3 class="uk-card-title"><span class="uk-link-heading">Mantissa Rating</span></h3>
                         <p>Simple Page with my team's rating of world-wide game "What? Where? When?" (USA analogue
                             is
@@ -132,7 +131,7 @@
                 </div>
                 <div class="uk-animation-scale-up project">
                     <a uk-toggle href="#modal" data-link="siold" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium uk-card-hover">
+                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-card-hover">
                         <h3 class="uk-card-title"><span class="uk-link-heading">СПОСИ (Старая версия) </span></h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                             ut
@@ -141,7 +140,7 @@
                 </div>
                 <div class="uk-animation-scale-up project">
                     <a uk-toggle href="#modal" data-link="top2018" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium">
+                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-card-hover">
                         <h3 class="uk-card-title"><span class="uk-link-heading">TOP-2018</span></h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                             ut
@@ -153,11 +152,12 @@
         </div>
     </div>
     <div class="modal">
-        <div id="modal" class="uk-flex-top" uk-modal>
+        <div id="modal" class="uk-flex-top uk-modal-full" uk-modal>
+            <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
             <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-                <div id='modalContent'>
-                    <div class="uk-modal-header">
-                        <h2 class="uk-modal-title" id="modalTitle" class="uk-animation-fade">Modal Title</h2>
+                <div id='modalContent' class="uk-padding-small">
+                    <div class="uk-modal-header uk-text-center">
+                        <h4 class="uk-modal-title" id="modalTitle" class="uk-animation-fade">Modal Title</h4>
                     </div>
                     <div class="uk-modal-body">
                         <p id='modalArticle' class="uk-animation-slide-bottom-small"></p>
@@ -168,10 +168,6 @@
                     <hr>
                 </div>
                 <div class="uk-grid-match uk-child-width-1-3@m uk-child-width-1-1@s" uk-grid>
-                    <div>
-                        <a class="uk-button uk-button-default uk-modal-close" type="button"><i
-                                class="fas fa-angle-left"></i> Back</a>
-                    </div>
                     <div>
                         <a class="uk-button uk-button-default" id="itemLink">Open</a>
                     </div>
@@ -193,7 +189,7 @@
                 title: 'Система Подсчета Очков Своей Игры',
                 text: 'aka Jeopardy Score Counter. This web-application provide you an opportunity to maintain a SI (Svoya Igra) score. All what you need is to add few players to player table.',
                 stack: ['html5', 'css3', 'jQuery', 'GSAP'],
-                link: 'si/',
+                link: 'https://ph1l74.github.io/si/',
                 github: 'https://github.com/ph1l74/ph1l74.github.io/tree/master/si'
             },
             vk2tumblr: {
@@ -207,21 +203,21 @@
                 title: 'Art-Guide',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
                 stack: ['html5', 'css3', 'jQuery', 'uikit3'],
-                link: '/art-guide/',
+                link: 'https://ph1l74.github.io/art-guide/',
                 github: 'https://github.com/ph1l74/ph1l74.github.io/tree/master/art-guide'
             },
             mantissa: {
                 title: 'Mantissa Page',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
                 stack: ['html5', 'css3', 'jQuery', 'uikit3'],
-                link: '/art-guide/',
+                link: 'https://ph1l74.github.io/mantissa/',
                 github: 'https://github.com/ph1l74/ph1l74.github.io/tree/master/mantissa'
             },
             siold: {
                 title: 'СПОСИ (Старая версия с раундами)',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
                 stack: ['html5', 'css3', 'jQuery', 'uikit3'],
-                link: '/art-guide/',
+                link: 'https://ph1l74.github.io/si-old/',
                 github: 'https://github.com/ph1l74/ph1l74.github.io/tree/master/si-old'
             },
             top2018: {
@@ -267,9 +263,8 @@
         }
 
         $(document).ready(function () {
-            console.log(window.location);
-            if (mobilecheck()) {
-                window.location.replace(window.location.origin + '/m');
+            if (!mobilecheck()) {
+                // window.location.replace(window.location.origin);
             }
         })
 
