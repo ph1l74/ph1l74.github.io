@@ -270,6 +270,24 @@
             return false;
         }
 
+        // 
+        function checkAdressBar() {
+            var projectId = window.location.href.split('#')[1];
+            if (projectId && projectId.length > 1) {
+                var project = projects.find(function (x) { return x.id === projectId });
+                if (project) {
+                    infoHide();
+                    setTimeout(function () {
+                        fillInfo(project);
+                        infoShow();
+                    }, 300);
+                }
+                else
+                    UIkit.notification("No such project as '" + projectId + "''", { status: 'warning' })
+            }
+        }
+
+
         // List Item generator from project-list.
         function createListItem(item) {
             const li = $('<li>').addClass('project-list-item animated fadeInLeft faster')
@@ -377,6 +395,7 @@
                 window.location.replace(window.location.origin + '/m');
             }
             else {
+                checkAdressBar();
                 generateList();
             }
         })

@@ -211,6 +211,20 @@
             fillModal(project);
         }
 
+        // 
+        function checkAdressBar() {
+            var projectId = window.location.href.split('#')[1];
+            if (projectId && projectId.length > 1) {
+                var project = projects.find(function (x) { return x.id === projectId });
+                if (project) {
+                    fillModal(project);
+                    UIkit.modal($('#modal')).show();
+                }
+                else
+                    UIkit.notification("No such project as '" + projectId + "''", { status: 'warning' })
+            }
+        }
+
 
         // Fill modal window with information
         function fillModal(item) {
@@ -263,6 +277,7 @@
                 window.location.replace(window.location.origin);
             }
             else {
+                checkAdressBar();
                 generateCards();
             }
         })
