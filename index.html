@@ -12,7 +12,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.6/js/uikit-icons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/ca7a562b36.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
     <title>ph1l74.github.io</title>
     <style>
         html,
@@ -92,64 +93,9 @@
     </div>
 
     <div class="uk-section uk-section-secondary uk-preserve-color">
-        <div class="uk-container">
+        <div class="uk-container uk-container-expand uk-margin-left uk-margin-right">
             <!-- <h2 class="uk-light">Actual Projects</h2> -->
-
-            <div class="uk-grid-match uk-child-width-1-4@m uk-child-width-1-1@s" uk-grid>
-
-                <div class="uk-animation-scale-up project">
-                    <a uk-toggle href="#modal" data-link="sposi" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium uk-card-hover">
-                        <h3 class="uk-card-title"><span class="uk-link-heading">СПОСИ</span></h3>
-                        <p>Система Подсчет Очков Своей Игры <br> / <br>Jeopardy Scores Counter</p>
-                    </a>
-                </div>
-
-                <div class="uk-animation-scale-up project">
-                    <a uk-toggle href="#modal" data-link="vk2tumblr" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium uk-card-hover">
-                        <h3 class="uk-card-title"><span class="uk-link-heading">vk2tumblr</span></h3>
-                        <p>Photo album importer. Just add special tag to your tumblr (or any other web-page) and the
-                            VK
-                            album will appear on the page.</p>
-                    </a>
-                </div>
-                <div class="uk-animation-scale-up project">
-                    <a uk-toggle href="#modal" data-link="artguide" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium uk-card-hover">
-                        <h3 class="uk-card-title"><span class="uk-link-heading">Art-Guide</span></h3>
-                        <p>Different courses, videos and other content about art.</p>
-                    </a>
-                </div>
-                <div class="uk-animation-scale-up project">
-                    <a uk-toggle href="#modal" data-link="mantissa" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium uk-card-hover">
-                        <h3 class="uk-card-title"><span class="uk-link-heading">Mantissa Rating</span></h3>
-                        <p>Simple Page with my team's rating of world-wide game "What? Where? When?" (USA analogue
-                            is
-                            Million Dollar Mind Game). </p>
-                    </a>
-                </div>
-                <div class="uk-animation-scale-up project">
-                    <a uk-toggle href="#modal" data-link="siold" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium uk-card-hover">
-                        <h3 class="uk-card-title"><span class="uk-link-heading">СПОСИ (Старая версия) </span></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut
-                            labore et dolore magna aliqua.</p>
-                    </a>
-                </div>
-                <div class="uk-animation-scale-up project">
-                    <a uk-toggle href="#modal" data-link="top2018" onclick="processLink(this)"
-                        class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium">
-                        <h3 class="uk-card-title"><span class="uk-link-heading">TOP-2018</span></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                            ut
-                            labore et dolore magna aliqua.</p>
-                    </a>
-                </div>
-            </div>
-
+            <div id="contentGrid" class="uk-grid-match uk-grid-large uk-child-width-1-5@xl uk-child-width-1-4@l uk-child-width-1-3@m uk-child-width-1-2@s" uk-grid>
         </div>
     </div>
     <div class="modal">
@@ -188,50 +134,64 @@
 
         let currentElement = {};
 
-        item = {
-            sposi: {
+        projects = [
+            {
+                id: 'sposi',
                 title: 'Система Подсчета Очков Своей Игры',
                 text: 'aka Jeopardy Score Counter. This web-application provide you an opportunity to maintain a SI (Svoya Igra) score. All what you need is to add few players to player table.',
                 stack: ['html5', 'css3', 'jQuery', 'GSAP'],
                 link: 'si/',
                 github: 'https://github.com/ph1l74/ph1l74.github.io/tree/master/si'
             },
-            vk2tumblr: {
+            {
+                id: 'vk2tumblr',
                 title: 'vk2tumblr',
                 text: 'VKontante photo albums importer. Link to the scripе on your html page, add the html tag with two parameters in your code. All the photos from your album will be added on your page.',
                 stack: ['html5', 'css3', 'jQuery', 'python', 'flask', 'heroku', 'vk open api', 'uikit3'],
                 link: 'https://vk2tumblr.herokuapp.com/',
                 github: 'https://github.com/ph1l74/vk2tumblr'
             },
-            artguide: {
+            {
+                id: 'artguide',
                 title: 'Art-Guide',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
+                text: 'This ',
                 stack: ['html5', 'css3', 'jQuery', 'uikit3'],
                 link: '/art-guide/',
                 github: 'https://github.com/ph1l74/ph1l74.github.io/tree/master/art-guide'
             },
-            mantissa: {
-                title: 'Mantissa Page',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
-                stack: ['html5', 'css3', 'jQuery', 'uikit3'],
-                link: '/art-guide/',
-                github: 'https://github.com/ph1l74/ph1l74.github.io/tree/master/mantissa'
+            {
+                id: 'brainring',
+                title: 'My Own Brain-ring System',
+                text: '',
+                stack: ['arduino', 'c++'],
+                link: 'https://github.com/ph1l74/my-own-private-brainringsystem/'
             },
-            siold: {
+            {
+                id: 'siold',
                 title: 'СПОСИ (Старая версия с раундами)',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
                 stack: ['html5', 'css3', 'jQuery', 'uikit3'],
-                link: '/art-guide/',
+                link: '/si-old/',
                 github: 'https://github.com/ph1l74/ph1l74.github.io/tree/master/si-old'
             },
-            top2018: {
+            {
+                id: 'mantissa',
+                title: 'Mantissa Page',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
+                stack: ['html5', 'css3', 'jQuery', 'uikit3'],
+                link: '/mantissa/',
+                github: 'https://github.com/ph1l74/ph1l74.github.io/tree/master/mantissa'
+            },
+
+            {
+                id: 'top2018',
                 title: 'My Top 2018',
                 text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
                 stack: ['html5', 'css3', 'reactjs', 'bulma', 'lastfm-api', 'python', 'flask'],
                 link: 'https://ph1l74.github.io/top2018-react/',
                 github: 'https://github.com/ph1l74/top2018-react'
             },
-        }
+        ]
 
         window.mobilecheck = function () {
             var check = false;
@@ -239,9 +199,21 @@
             return check;
         };
 
-        function clickHandler(e) {
-            var project = $(e).attr('data-link');
-            fillModal(item[project]);
+        function createCard(card) {
+            const div = $('<div>').addClass('uk-animation-scale-up project');
+            const a = $('<a uk-toggle>').addClass('uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium uk-card-hover');
+            a.prop({ 'href': '#modal'}).data('link', card.id).on('click', () => {clickHandler(a.data('link'));});
+            const h = $('<h3>').addClass("uk-card-title");
+            const span = $('<span>').addClass('uk-link-heading').text(card.title);
+            const p = $('<p>').text(card.text);
+            div.append(a.append([h.append(span), p]));
+            $('#contentGrid').append(div);
+        }
+
+        function clickHandler(dataLink) {
+            var projectId = dataLink;
+            var project = projects.find(x => x.id === projectId);
+            fillModal(project);
         }
 
         function fillModal(item) {
@@ -259,17 +231,23 @@
             });
 
             $('#itemLink').attr('href', item.link);
-            $('#itemGithub').attr('href', item.github);
+            if (item.github) {
+                $('#itemGithub').attr('href', item.github);
+            }
         }
 
-        function processLink(e) {
-            clickHandler(e);
+        function processCards() {
+            projects.forEach((project) => {
+                createCard(project);
+            })
         }
 
         $(document).ready(function () {
-            console.log(window.location);
             if (mobilecheck()) {
                 window.location.replace(window.location.origin + '/m');
+            }
+            else {
+                processCards();
             }
         })
 
