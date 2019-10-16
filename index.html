@@ -274,7 +274,7 @@
 
         // List Item generator from project-list.
         function createListItem(item) {
-            const li = $('<li>').addClass('project-list-item')
+            const li = $('<li>').addClass('project-list-item animated fadeInLeft faster')
             const a = $('<a>').addClass('uk-link-toggle uk-text-right uk-text-middle').text(item.title);
             a.prop({ 'href': '#' + item.id }).data('link', item.id).on('click', function () {
                 $('.project-list-item').removeClass('item-active');
