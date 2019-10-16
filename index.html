@@ -258,7 +258,7 @@
             return check;
         };
 
-
+        // Browser check
         function msieversion() {
 
             var ua = window.navigator.userAgent;
@@ -332,6 +332,8 @@
             })
         }
 
+
+        // Hide information blcok animation
         function infoHide() {
             $('#projectTitle').removeClass('animated fadeInTop faster');
             $('#projectArticle').removeClass('animated fadeInRight faster');
@@ -350,6 +352,8 @@
             }, 200);
         }
 
+
+        // Show information blcok animation
         function infoShow() {
             $('#projectTitle').removeClass('animated fadeOut faster');
             $('#projectArticle').removeClass('animated fadeOut faster');
