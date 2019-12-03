@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css" src="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans|Merriweather|PT+Sans+Caption&display=swap"
+        rel="stylesheet">
+    <title>chgk-soft: утилиты для интеллекутальных игр</title>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="title">
+                <h1>chgk-soft</h1>
+                <h4>утилиты для интеллекутальных игр</h4>
+            </div>
+        </div>
+        <div class="content">
+
+            <div class="links">
+                <ul id="linksList">
+                </ul>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+</body>
+
+<script>
+    var links = [
+        {
+            title: 'title',
+            desc: 'description',
+            url: '#'
+        },
+    ];
+
+    function shuffleArray(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
+
+    function createItem(item) {
+        return "<li><div class='link'><a href='" + item.url + "' target='_blank' class='link-title'>" + item.title + "</a> — " + item.desc + "</div></li>";
+    }
+
+    function init() {
+        var itemsArray = shuffleArray(links);
+        var listElem = document.getElementById('linksList');
+        itemsArray.forEach(function (item) { 
+            listElem.innerHTML += createItem(item);
+         })
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        init();
+    });
+</script>
+
+</html>
