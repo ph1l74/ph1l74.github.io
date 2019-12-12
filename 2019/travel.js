@@ -50,6 +50,47 @@ function init() {
         })
         activeEl.classList.add('active');
     }
+
 }
+
+function makeSwiperOptions(prefix) {
+    var swiperOptions = {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        pagination: {
+            el: `${prefix} .swiper-pagination`,
+            clickable: true,
+        },
+        navigation: {
+            nextEl: `${prefix} .swiper-button-next`,
+            prevEl: `${prefix} .swiper-button-prev`,
+        },
+        keyboard: {
+            enabled: true,
+        },
+        // autoplay: {
+        //     delay: 1500,
+        //     disableOnInteraction: true,
+        // },
+    }
+    return swiperOptions
+}
+
+
+
+var swiperLituania = new Swiper('.litva .swiper-container', makeSwiperOptions('.litva'));
+var swiperRiga = new Swiper('.riga .swiper-container', makeSwiperOptions('.riga'));
+var swiperTallinn = new Swiper('.tallin .swiper-container', makeSwiperOptions('.tallin'));
+var swiperHelsinki = new Swiper('.helsinki .swiper-container', makeSwiperOptions('.helsinki'));
+var swiperIsland = new Swiper('.island .swiper-container', makeSwiperOptions('.island'));
+var swiperPrague = new Swiper('.prague .swiper-container', makeSwiperOptions('.prague'));
 
 init();
