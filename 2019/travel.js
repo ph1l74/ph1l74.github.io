@@ -1,8 +1,8 @@
-function init() {
+function travelInit() {
     const navEls = document.querySelectorAll('.travel-nav-li');
     const travelSections = document.querySelectorAll('.travel-hero');
 
-    current = 0;
+    travelCurrent = 0;
 
     navEls.forEach((navEl, index) => {
         navEl.addEventListener('click', function () {
@@ -12,7 +12,7 @@ function init() {
 
     function changeTravelSection(sectionNumber) {
         switchNavEl(sectionNumber);
-        const currentSection = travelSections[current];
+        const currentSection = travelSections[travelCurrent];
         const nextSection = travelSections[sectionNumber];
         const nextHeader = nextSection.querySelector('.travel-header');
         const nextSwiper = nextSection.querySelector('.swiper-container');
@@ -39,7 +39,7 @@ function init() {
             .fromTo(nextSwiper, 0.5, { x: '-100%', y: '0%', opacity: 0 }, { x: '0%', y: '0%', opacity: 1 })
             .fromTo(nextHeader, 0.5, { x: '0%', y: '-100%', opacity: 0 }, { x: '0%', y: '0%', opacity: 1 })
 
-        current = sectionNumber;
+        travelCurrent = sectionNumber;
     }
 
     function switchNavEl(sectionNumber) {
@@ -92,4 +92,4 @@ var swiperHelsinki = new Swiper('.helsinki .swiper-container', makeSwiperOptions
 var swiperIsland = new Swiper('.island .swiper-container', makeSwiperOptions('.island'));
 var swiperPrague = new Swiper('.prague .swiper-container', makeSwiperOptions('.prague'));
 
-init();
+travelInit();

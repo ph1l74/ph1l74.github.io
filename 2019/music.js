@@ -1,8 +1,8 @@
-function init() {
+function musicInit() {
     const navEls = document.querySelectorAll('.music-nav-li');
-    const travelSections = document.querySelectorAll('.music-hero');
+    const musicSections = document.querySelectorAll('.music-hero');
 
-    current = 0;
+    musicCurrent = 0;
 
     navEls.forEach((navEl, index) => {
         navEl.addEventListener('click', function () {
@@ -12,8 +12,10 @@ function init() {
 
     function changeMusicSection(sectionNumber) {
         switchNavEl(sectionNumber);
-        const currentSection = travelSections[current];
-        const nextSection = travelSections[sectionNumber];
+        const currentSection = musicSections[musicCurrent];
+        const nextSection = musicSections[sectionNumber];
+
+        console.log(sectionNumber, musicCurrent);
 
         const t1 = new TimelineMax({
             onStart: function () {
@@ -29,10 +31,10 @@ function init() {
         });
 
         t1
-            .fromTo(currentSection, 0.5, { zIndex: 1, x: '0%', opacity: 1 }, { x: '-100%', opacity: 0, zIndex: -1 })
-            .fromTo(nextSection, 0.5, { zIndex: -1, x: '100%', opacity: 0 }, { x: '0%', opacity: 1, zIndex: 1 }, '-=0.5');
+            .fromTo(currentSection, 0.5, { zIndex: 1, x: '0%', opacity: 1, ease: Expo.easeOut }, { x: '-100%', opacity: 0, zIndex: -1, ease: Expo.easeOut })
+            .fromTo(nextSection, 0.5, { zIndex: -1, x: '100%', opacity: 0, ease: Expo.easeOut }, { x: '0%', opacity: 1, zIndex: 1, ease: Expo.easeOut }, '-=0.5');
 
-        current = sectionNumber;
+        musicCurrent = sectionNumber;
     }
 
     function switchNavEl(sectionNumber) {
@@ -47,8 +49,6 @@ function init() {
 
 function mostListenedAlbumInit() {
     const albumsEls = document.querySelectorAll('.most-listened-album');
-
-    current = 0;
 
     albumsEls.forEach((albumEl, index) => {
         albumEl.addEventListener('click', function () {
@@ -85,8 +85,6 @@ function mostListenedAlbumInit() {
         });
 
         t1.fromTo(target, 0.3, { x: '0%', opacity: 1 }, { x: '-100%', opacity: 0 });
-
-        current = albumNumber;
     }
 
     function switchAlbum(albumNumber) {
@@ -100,8 +98,6 @@ function mostListenedAlbumInit() {
 
 function freshAlbums() {
     const albumsEls = document.querySelectorAll('.fresh-album');
-
-    current = 0;
 
     albumsEls.forEach((albumEl, index) => {
         albumEl.addEventListener('click', function () {
@@ -138,8 +134,6 @@ function freshAlbums() {
         });
 
         t1.fromTo(target, 0.3, { x: '0%', opacity: 1 }, { x: '-100%', opacity: 0 });
-
-        current = albumNumber;
     }
 
     function switchAlbum(albumNumber) {
@@ -151,7 +145,7 @@ function freshAlbums() {
     }
 }
 
-init();
+musicInit();
 
 mostListenedAlbumInit();
 
