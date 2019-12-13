@@ -10,6 +10,12 @@ body {
     /* font-family: 'Noto Sans', sans-serif; */
     color: white;
     overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 main {
@@ -203,6 +209,9 @@ header h1 {
 
 .travel-hero.riga, .travel-hero.tallin, .travel-hero.helsinki, .travel-hero.island, .travel-hero.prague, .music-hero.fresh-albums, .music-hero.most-listened-tracks, .music-hero.fav-tracks {
     opacity: 0;
+}
+
+.music-hero.fresh-albums, .music-hero.most-listened-tracks, .music-hero.fav-tracks {
     z-index: -1;
 }
 
@@ -220,7 +229,7 @@ header h1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
-    margin-left:20px;
+    margin-left: 20px;
 }
 
 .most-listened-albums-list div {
@@ -241,6 +250,13 @@ header h1 {
     opacity: 1;
     cursor: pointer;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.11), 0 2px 2px rgba(0, 0, 0, 0.11), 0 4px 4px rgba(0, 0, 0, 0.11), 0 8px 8px rgba(0, 0, 0, 0.11), 0 16px 16px rgba(0, 0, 0, 0.11), 0 32px 32px rgba(0, 0, 0, 0.11);
+}
+
+.most-listened-albums-list div.active {
+    transform: scale(1.1);
+    opacity: 1;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15), 0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
 }
 
 .most-listened-albums-cover {

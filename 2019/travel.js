@@ -12,7 +12,6 @@ function init() {
 
     function changeTravelSection(sectionNumber) {
         switchNavEl(sectionNumber);
-        console.log(travelSections, sectionNumber);
         const currentSection = travelSections[current];
         const nextSection = travelSections[sectionNumber];
         const nextHeader = nextSection.querySelector('.travel-header');
