@@ -57,8 +57,7 @@ function init() {
             .fromTo(currentSection, 0.5, { opacity: 1, pointerEvents: 'all', zIndex: 1 }, { opacity: 0, pointerEvents: 'none', zIndex: -1 })
             .fromTo(nextSection, 0.5, { opacity: 0, pointerEvents: 'none', zIndex: -1 }, { opacity: 1, pointerEvents: 'all', zIndex: 1 })
             .fromTo(nextHero, 0.5, { y: '100%', opacity: 0 }, { y: '0%', opacity: 1 }, "-=0.3")
-            .fromTo(nextDetails, 0.5, { x: '100%', opacity: 0 }, { x: '0%', opacity: 1 }, "-=0.3")
-        // .set(nextSection, { clearProps: 'all' });
+            .fromTo(nextDetails, 0.5, { x: '100%', opacity: 0 }, { x: '0%', opacity: 1 }, "-=0.3");
 
         current = sectionNumber;
     }
