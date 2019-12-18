@@ -8,6 +8,7 @@ body {
     background: linear-gradient(45deg, #1F1C18, #007a8e);
     font-family: 'Montserrat', sans-serif;
     /* font-family: 'Noto Sans', sans-serif; */
+    /* font-family: 'Vollkorn', serif; */
     color: white;
     overflow: hidden;
     -webkit-touch-callout: none;
@@ -121,6 +122,23 @@ header h1 {
     top: 5%;
     font-weight: 800;
     /* font-family: 'Noto Sans', sans-serif; */
+    /* font-family: 'Vollkorn', serif; */
+    animation: float 15s ease-in-out infinite;
+    -webkit-animation: float 15s ease-in-out infinite;
+    perspective: 1000px;
+    transform-origin: left center;
+}
+
+header div {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    border: 20px solid rgba(255, 255, 255, 0.1);
+    right: -200px;
+    bottom: 10%;
+    /* animation: squarerotate 15s ease-in-out infinite, squarescale 5s ease-in-out infinite, squareborder 10s ease-in-out infinite; */
+    animation: squarerotate 15s ease-in-out infinite;
+    /* -webkit-animation: squarerotate 15s ease-in-out infinite, squarescale 5s ease-in-out infinite, squareborder 10s ease-in-out infinite; */
 }
 
 .swiper-container {
@@ -304,4 +322,124 @@ header h1 {
     transition: all 0.5s ease;
     color: white;
     font-size: 1.2rem;
+}
+
+.fav-tracks ul li, .most-listened-tracks ul li {
+    list-style: none;
+}
+
+.fav-tracks ul li>div, .most-listened-tracks ul li>div {
+    padding: 4px;
+    display: inline-flex;
+    padding-left: 10%;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.fav-tracks ul li>div:hover .fav-track-cover, .most-listened-tracks ul li>div:hover .most-listened-track-cover {
+    transform: scale(1);
+    opacity: 0.2;
+}
+
+.fav-tracks ul li:first-child, .most-listened-tracks ul li:first-child {
+    margin-top: 20px;
+}
+
+.fav-track-cover, .most-listened-track-cover {
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-size: cover;
+    transform: scale(0.5);
+    transition: all .2s ease;
+    margin-left: 4px;
+}
+
+.fav-track-info, .most-listened-track-info {
+    text-align: left;
+    margin-left: 10px;
+    font-size: 1.2rem;
+    transform: scale(0.9);
+    transition: all .2s ease-in;
+    width: 100%;
+}
+
+.fav-track-count, .most-listened-track-count {
+    opacity: 0;
+    transition: all .3s;
+    float: right;
+    position: relative;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.fav-track-bg, .most-listened-track-bg {
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all .3s ease-out;
+    z-index: -1;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.fav-tracks ul li>div:hover .fav-track-info, .most-listened-tracks ul li>div:hover .most-listened-track-info {
+    transform: scale(1);
+}
+
+.fav-tracks ul li>div:hover .fav-track-cover, .most-listened-tracks ul li>div:hover .most-listened-track-cover {
+    opacity: 1;
+}
+
+.fav-tracks ul li>div:hover .fav-track-count, .most-listened-tracks ul li>div:hover .most-listened-track-count {
+    opacity: 1;
+}
+
+.fav-tracks ul li>div:hover .fav-track-bg, .most-listened-tracks ul li>div:hover .most-listened-track-bg {
+    width: 100%;
+}
+
+
+@keyframes squarerotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    100% {
+        transform: rotate(360deg) scale(2);
+    }
+}
+
+
+@keyframes squarescale {
+    0% {
+        transform: scale(0.9);
+    }
+    50% {
+        transform: scale(2)
+    }
+    100% {
+        transform: scale(0.9);
+    }
+}
+
+
+@keyframes squareborder {
+    0% {
+        border-style: dashed;
+        border-radius: 10px;
+    }
+    30% {
+        border-style: dotted;
+        border-radius: 20px;
+    }
+    60% {
+        border-style: ridge;
+        border-radius: 50px;
+    }
+    100% {
+        border-style: solid;
+        border-radius: 10px;
+    }
 }

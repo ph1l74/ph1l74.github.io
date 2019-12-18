@@ -14,9 +14,7 @@ function musicInit() {
         switchNavEl(sectionNumber);
         const currentSection = musicSections[musicCurrent];
         const nextSection = musicSections[sectionNumber];
-
-        console.log(sectionNumber, musicCurrent);
-
+        
         const t1 = new TimelineMax({
             onStart: function () {
                 navEls.forEach(navEl => {
