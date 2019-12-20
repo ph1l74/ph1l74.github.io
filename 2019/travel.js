@@ -54,6 +54,7 @@ function travelInit() {
 
 function makeSwiperOptions(prefix) {
     var swiperOptions = {
+        lazy: true,
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
