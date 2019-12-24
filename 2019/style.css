@@ -224,7 +224,7 @@ header div {
     text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 
-.music-hero h3  {
+.music-hero h3 {
     font-size: 3.5rem;
     position: absolute;
     z-index: 2;
@@ -423,7 +423,8 @@ header div {
     margin: 0;
 }
 
-.movies-all-elem {
+.movies-all-elem ,
+.movies-top-2019-elem {
     /* margin: 200px; */
     /* width: 300px; */
     width: 300px;
@@ -434,7 +435,8 @@ header div {
     position: relative;
 }
 
-.movies-all-elem-back {
+.movies-all-elem-back,
+.movies-top-2019-elem-back {
     transition: all .2s ease-in;
     opacity: 0;
     background: rgba(0, 0, 0, 0.7);
@@ -447,12 +449,13 @@ header div {
     line-height: 2;
 }
 
+.movies-top-2019-elem:hover .movies-top-2019-elem-back,
 .movies-all-elem:hover .movies-all-elem-back {
     opacity: 1;
 }
 
 .flickity-page-dots .dot {
-    background: rgba(255,255,255,0.5) !important;
+    background: rgba(255, 255, 255, 0.5) !important;
 }
 
 @keyframes squarerotate {
@@ -494,3 +497,4 @@ header div {
         border-radius: 10px;
     }
 }
+

@@ -54,7 +54,7 @@ const sliderOptions = {
 }
 
 
-moviesInit();
+var moviesAllSlider = new Flickity('.movies-all-slider', sliderOptions);
+var moviesTopSlider = new Flickity('.movies-top-2019-slider', sliderOptions);
 
-var flkty = new Flickity('.movies-all-slider', sliderOptions);
-// var ebota = new Flickity('.movies-top-2019-slider', sliderOptions);
+moviesInit();
