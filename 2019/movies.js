@@ -29,8 +29,8 @@ function moviesInit() {
         });
 
         t1
-            .fromTo(currentSection, 0.5, { zIndex: 1, x: '0%', opacity: 1, ease: Expo.easeOut }, { x: '-100%', opacity: 0, zIndex: -1, ease: Expo.easeOut })
-            .fromTo(nextSection, 0.5, { zIndex: -1, x: '100%', opacity: 0, ease: Expo.easeOut }, { x: '0%', opacity: 1, zIndex: 1, ease: Expo.easeOut }, '-=0.5');
+            .fromTo(currentSection, 0.5, { zIndex: 1, x: '0%', opacity: 1, ease: Expo.easeOut, pointerEvents: 'all' }, { x: '-100%', opacity: 0, zIndex: -1, ease: Expo.easeOut, pointerEvents: 'none' })
+            .fromTo(nextSection, 0.5, { zIndex: -1, x: '100%', opacity: 0, ease: Expo.easeOut, pointerEvents: 'none' }, { x: '0%', opacity: 1, zIndex: 1, ease: Expo.easeOut, pointerEvents: 'all' }, '-=0.5');
 
         musicCurrent = sectionNumber;
     }

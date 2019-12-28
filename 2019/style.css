@@ -233,6 +233,15 @@ header div {
     text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 
+.books-hero h3 {
+    font-size: 3.5rem;
+    position: absolute;
+    z-index: 2;
+    top: -40px;
+    left: -50px;
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
 .movies-hero h3 {
     font-size: 3.5rem;
     position: absolute;
@@ -423,8 +432,7 @@ header div {
     margin: 0;
 }
 
-.movies-all-elem ,
-.movies-top-2019-elem {
+.movies-all-elem, .movies-top-2019-elem {
     /* margin: 200px; */
     /* width: 300px; */
     width: 300px;
@@ -435,8 +443,7 @@ header div {
     position: relative;
 }
 
-.movies-all-elem-back,
-.movies-top-2019-elem-back {
+.movies-all-elem-back, .movies-top-2019-elem-back {
     transition: all .2s ease-in;
     opacity: 0;
     background: rgba(0, 0, 0, 0.7);
@@ -449,13 +456,62 @@ header div {
     line-height: 2;
 }
 
-.movies-top-2019-elem:hover .movies-top-2019-elem-back,
-.movies-all-elem:hover .movies-all-elem-back {
+.movies-top-2019-elem:hover .movies-top-2019-elem-back, .movies-all-elem:hover .movies-all-elem-back {
     opacity: 1;
 }
 
 .flickity-page-dots .dot {
     background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.books-list {
+    padding: 0;
+    margin-left: -100px;
+    list-style: none;
+}
+
+.books-list li {
+    display: inline-block;
+    margin: 10px;
+    width: 150px;
+}
+
+
+.books-elem {
+    display: inline-block;
+    position: relative;
+    transition: all 0.5s;
+    height: 250px;
+    width: 150px;
+    box-shadow: -10px 10px 10px 2px rgba(0, 0, 0, .2);
+    background-position: center;
+    background-size: cover;
+}
+
+.books-elem:hover {
+    transform: scale(1.1);
+}
+
+
+.books-elem-info {
+    position: absolute;
+    opacity: 0;
+    transition: all .2s ease-in;
+    width: 150px;
+    text-align: center;
+    padding-top: 50%;
+    background: rgba(0, 0, 0, 0.9);
+    height: 100%
+
+}
+
+.books-elem:hover .books-elem-info{
+    opacity: 1;
+}
+
+.books-elem-info > p:first-child {
+    font-size: 1.2rem;
+    font-weight: 900;
 }
 
 @keyframes squarerotate {
@@ -497,4 +553,3 @@ header div {
         border-radius: 10px;
     }
 }
-
