@@ -251,6 +251,15 @@ header div {
     text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
 }
 
+.projects-hero h3 {
+    font-size: 3.5rem;
+    position: absolute;
+    z-index: 2;
+    top: -40px;
+    left: -50px;
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
 .travel-hero.riga, .travel-hero.tallin, .travel-hero.helsinki, .travel-hero.island, .travel-hero.prague, .music-hero.fresh-albums, .music-hero.most-listened-tracks, .music-hero.fav-tracks, .movies-top-2019 {
     opacity: 0;
 }
@@ -350,7 +359,7 @@ header div {
     font-size: 1.2rem;
 }
 
-.fav-tracks ul li, .most-listened-tracks ul li {
+.fav-tracks ul li, .most-listened-tracks ul li, .projects-list li {
     list-style: none;
 }
 
@@ -476,7 +485,6 @@ header div {
     width: 150px;
 }
 
-
 .books-elem {
     display: inline-block;
     position: relative;
@@ -492,7 +500,6 @@ header div {
     transform: scale(1.1);
 }
 
-
 .books-elem-info {
     position: absolute;
     opacity: 0;
@@ -502,16 +509,38 @@ header div {
     padding-top: 50%;
     background: rgba(0, 0, 0, 0.9);
     height: 100%
-
 }
 
-.books-elem:hover .books-elem-info{
+.books-elem:hover .books-elem-info {
     opacity: 1;
 }
 
-.books-elem-info > p:first-child {
+.books-elem-info>p:first-child {
     font-size: 1.2rem;
     font-weight: 900;
+}
+
+.projects-list {
+    margin-top: 20px;
+}
+
+a, a:link, a:visited, a:hover, a:focus, a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+.projects-list-elem>a {
+    font-size: 2rem;
+    line-height: 2;
+    text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.7);
+    transition: all .2s ease;
+}
+
+.projects-list-elem>a:hover {
+    /* text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.9), 8px 8px 0px rgba(0, 0, 0, 0.7), 12px 12px 0px rgba(0, 0, 0, .5); */
+    text-shadow: 4px 4px 0px rgba(255, 255, 255, 0.7), 8px 8px 0px rgba(255, 255, 255, 0.6), 12px 12px 0px rgba(255, 255, 255, .5);
+    color: rgba(0, 0, 0, 0);
+    font-size: 2.2rem;
 }
 
 @keyframes squarerotate {
