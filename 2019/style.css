@@ -137,7 +137,7 @@ header div {
     right: -200px;
     bottom: 10%;
     /* animation: squarerotate 15s ease-in-out infinite, squarescale 5s ease-in-out infinite, squareborder 10s ease-in-out infinite; */
-    animation: squarerotate 15s ease-in-out infinite;
+    animation: squarerotate 15s linear infinite;
     /* -webkit-animation: squarerotate 15s ease-in-out infinite, squarescale 5s ease-in-out infinite, squareborder 10s ease-in-out infinite; */
 }
 
@@ -518,8 +518,11 @@ header div {
     0% {
         transform: rotate(0deg) scale(1);
     }
+    50% {
+        transform: rotate(180deg) scale(2);
+    }
     100% {
-        transform: rotate(360deg) scale(2);
+        transform: rotate(360deg) scale(1);
     }
 }
 
