@@ -99,3 +99,9 @@ div#imageLoc {
     border-color: #1e87f0;
     cursor: pointer;
 }
+
+@media screen and (max-width: 694px) and (orientation: portrait) {
+    .tools-panel {
+        padding: 0;
+    }
+}
